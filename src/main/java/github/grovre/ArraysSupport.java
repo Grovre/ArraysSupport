@@ -1111,4 +1111,13 @@ public class ArraysSupport {
                 count++;
         return count;
     }
+
+    // TODO: 6/12/2022 replaceAll
+    // TODO: 6/12/2022 rotate
+    // TODO: 6/12/2022 reverse 
+    // TODO: 6/12/2022 shuffle 
+    // TODO: 6/12/2022 swap 
+    // TODO: 6/12/2022 append?
+    // TODO: 6/12/2022 prepend?
+    // TODO: 6/12/2022 insert?
 }
