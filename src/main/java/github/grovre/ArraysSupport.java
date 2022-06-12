@@ -4,6 +4,8 @@ import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.math3.util.FastMath;
 
+import java.util.function.IntUnaryOperator;
+
 
 /**
  * This class adds features similar to {@link java.util.Collections}
@@ -14,6 +16,22 @@ import org.apache.commons.math3.util.FastMath;
  */
 @UtilityClass
 public class ArraysSupport {
+
+    /**
+     * Generates an array based off of the generate function provided.
+     * The parameter to the generate function is the index; the first
+     * index, 0, is applied to the function and assigned to index 0 and so on.
+     *
+     * @param op The operation to generate the elements
+     * @param len The length of the array
+     * @return A new int array after applying the generating function to all indices
+     */
+    public static int[] generate(IntUnaryOperator op, int len) {
+        int[] arr = new int[len];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = op.applyAsInt(i);
+        return arr;
+    }
 
     /**
      * Linearly searches through an array using Apache Common's

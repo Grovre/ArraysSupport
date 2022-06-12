@@ -16,5 +16,11 @@ class SupportTests {
         assertEquals(1_253, ArraysSupport.min(arr));
         assertEquals(9_502, ArraysSupport.max(arr));
 
+        arr = ArraysSupport.generate(i -> i * 100, 100);
+        assertEquals(100, arr.length);
+        for (int n : new int[]{0, 1, 2})
+            assertEquals(n * 100, arr[n]);
+
+
     }
 }
