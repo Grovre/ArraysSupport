@@ -10,6 +10,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class SupportTests {
 
     @Test
+    void objectTests() {
+        Square[] arr = ArraysSupport.generate(Square[]::new, () -> new Square((int) (Math.random() * 1_000) + 1), 1_000);
+        arr[(int) (Math.random() * 500) + 500] = new Square(1_001); // 500 - 999
+        arr[(int) (Math.random() * 500)] = new Square(0); // 0 - 499
+        assertEquals(new Square(1_001), ArraysSupport.max(arr));
+        assertEquals(new Square(0), ArraysSupport.min(arr));
+
+        Arrays.sort(arr);
+        assertEquals(0, ArraysSupport.indexOf(arr, new Square(0)));
+        assertEquals(arr.length-1, ArraysSupport.indexOf(arr, new Square(1_001)));
+    }
+
+    @Test
     void supportTester() {
 
         int[] arr = new int[]{0, 1, 2, 3, 2, 1, 0};

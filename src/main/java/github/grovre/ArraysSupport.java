@@ -5,10 +5,7 @@ import lombok.experimental.UtilityClass;
 import org.apache.commons.math3.util.FastMath;
 
 import java.util.Arrays;
-import java.util.function.BooleanSupplier;
-import java.util.function.DoubleSupplier;
-import java.util.function.IntSupplier;
-import java.util.function.LongSupplier;
+import java.util.function.*;
 
 
 /**
@@ -35,12 +32,31 @@ public class ArraysSupport {
      * Generates an array based off of the generate function provided.
      * The parameter to the generate function is the index; the first
      * index, 0, is applied to the function and assigned to index 0 and so on.
+     * Generation is unchecked.
+     *
+     * @param arrayGenerator The function used to create an array safely.
+     *                       It should look like <code>T[]::new</code>
+     * @param op The operation to generate the elements
+     * @param len The length of the array
+     * @return A new array after applying the generating function to all indices
+     */
+    public static <T> T[] generate(@NonNull IntFunction<T[]> arrayGenerator,@NonNull  Supplier<T> op, int len) {
+        T[] arr = arrayGenerator.apply(len);
+        for (int i = 0; i < len; i++)
+            arr[i] = op.get();
+        return arr;
+    }
+
+    /**
+     * Generates an array based off of the generate function provided.
+     * The parameter to the generate function is the index; the first
+     * index, 0, is applied to the function and assigned to index 0 and so on.
      *
      * @param op The operation to generate the elements
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
-    public static int[] generateInt(IntSupplier op, int len) {
+    public static int[] generateInt(@NonNull IntSupplier op, int len) {
         int[] arr = new int[len];
         for (int i = 0; i < arr.length; i++)
             arr[i] = op.getAsInt();
@@ -56,7 +72,7 @@ public class ArraysSupport {
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
-    public static short[] generateShort(IntSupplier op, int len) {
+    public static short[] generateShort(@NonNull IntSupplier op, int len) {
         short[] arr = new short[len];
         for (int i = 0; i < arr.length; i++)
             arr[i] = (short) op.getAsInt();
@@ -72,7 +88,7 @@ public class ArraysSupport {
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
-    public static byte[] generateByte(IntSupplier op, int len) {
+    public static byte[] generateByte(@NonNull IntSupplier op, int len) {
         byte[] arr = new byte[len];
         for (int i = 0; i < arr.length; i++)
             arr[i] = (byte) op.getAsInt();
@@ -88,7 +104,7 @@ public class ArraysSupport {
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
-    public static long[] generateLong(LongSupplier op, int len) {
+    public static long[] generateLong(@NonNull LongSupplier op, int len) {
         long[] arr = new long[len];
         for (int i = 0; i < arr.length; i++)
             arr[i] = op.getAsLong();
@@ -104,7 +120,7 @@ public class ArraysSupport {
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
-    public static boolean[] generateBoolean(BooleanSupplier op, int len) {
+    public static boolean[] generateBoolean(@NonNull BooleanSupplier op, int len) {
         boolean[] arr = new boolean[len];
         for (int i = 0; i < arr.length; i++)
             arr[i] = op.getAsBoolean();
@@ -120,7 +136,7 @@ public class ArraysSupport {
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
-    public static double[] generateDouble(DoubleSupplier op, int len) {
+    public static double[] generateDouble(@NonNull DoubleSupplier op, int len) {
         double[] arr = new double[len];
         for (int i = 0; i < arr.length; i++)
             arr[i] = op.getAsDouble();
@@ -136,7 +152,7 @@ public class ArraysSupport {
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
-    public static float[] generateFloat(DoubleSupplier op, int len) {
+    public static float[] generateFloat(@NonNull DoubleSupplier op, int len) {
         float[] arr = new float[len];
         for (int i = 0; i < arr.length; i++)
             arr[i] = (float) op.getAsDouble();
@@ -242,8 +258,22 @@ public class ArraysSupport {
     }
 
     /**
-     * Linearly searches through an array using Apache Common's
-     * {@link FastMath} utility class to find the min.
+     * Linearly searches through an array using the
+     * object's <code>compareTo(o)</code> method.
+     *
+     * @param arr The array to be searched for the max
+     * @return The max number from the array
+     */
+    public static <T extends Comparable<T>> T max(@NonNull final T[] arr) {
+        T max = arr[0];
+        for (T o : arr)
+            max = max.compareTo(o) > 0 ? max : o;
+        return max;
+    }
+
+    /**
+     * Linearly searches through an array using the
+     * object's <code>compareTo(o)</code> method.
      *
      * @param arr The array to be searched for the min
      * @return The min number from the array
@@ -337,6 +367,20 @@ public class ArraysSupport {
         for(char n : arr)
             min = FastMath.min(min, n);
         return (char) min;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the min.
+     *
+     * @param arr The array to be searched for the min
+     * @return The min number from the array
+     */
+    public static <T extends Comparable<T>> T min(@NonNull final T[] arr) {
+        T min = arr[0];
+        for(T o : arr)
+            min = min.compareTo(o) > 0 ? o : min;
+        return min;
     }
 
     /**
@@ -550,6 +594,33 @@ public class ArraysSupport {
     }
 
     /**
+     * Finds the first occurrence of the target parameter
+     * using {@code firstIndexOf} from this class.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the targdoubleet, or -1 if it doesn't exist.
+     */
+    public static <T> int indexOf(@NonNull final T[] arr, final T target) {
+        return firstIndexOf(arr, target);
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static <T> int firstIndexOf(@NonNull final T[] arr, final T target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(target))
+                return i;
+        }
+        return -1;
+    }
+
+    /**
      * Finds the first occurrence of the target parameter.
      *
      * @param arr The array to find the target in
@@ -664,6 +735,21 @@ public class ArraysSupport {
     public static int firstIndexOf(@NonNull final char[] arr, final char target) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == target)
+                return i;
+        }
+        return -1;
+    }
+
+    /**
+     * Finds the last occurrence of the target parameter.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static <T> int lastIndexOf(@NonNull final T[] arr, final T target) {
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i].equals(target))
                 return i;
         }
         return -1;
@@ -849,6 +935,23 @@ public class ArraysSupport {
 
     /**
      * <P>
+     *     Returns true if the two specified arrays have no elements in common.
+     * </P>
+     * <P>
+     *     This method streams both arrays then uses filtering and anyMatch to
+     *     determine if they have anything in common. This method's speed is untested.
+     * </P>
+     *
+     * @param arr1 The first array
+     * @param arr2 The second array
+     * @return True if both arrays have no elements in common. False if they both contain
+     */
+    public static <T> boolean disjoint(@NonNull T[] arr1, @NonNull T[] arr2) {
+        return Arrays.stream(arr1).noneMatch(o -> Arrays.stream(arr2).anyMatch(o::equals));
+    }
+
+    /**
+     * <P>
      *     Returns the number of elements in the specified array equal to the specified target.
      *     Does a basic linear search on an array using a for loop.
      * </P>
@@ -986,6 +1089,24 @@ public class ArraysSupport {
     public static int frequency(@NonNull char[] arr, char target) {
         int count = 0;
         for (char n : arr)
+            if (n == target)
+                count++;
+        return count;
+    }
+
+    /**
+     * <P>
+     *     Returns the number of elements in the specified array equal to the specified target.
+     *     Does a basic linear search on an array using a for loop.
+     * </P>
+     *
+     * @param arr The array to search
+     * @param target The target to search for
+     * @return The amount of appearances of the target in the given array
+     */
+    public static <T> int frequency(@NonNull T[] arr, T target) {
+        int count = 0;
+        for (T n : arr)
             if (n == target)
                 count++;
         return count;
