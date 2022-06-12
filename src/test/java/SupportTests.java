@@ -1,6 +1,10 @@
 import github.grovre.ArraysSupport;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SupportTests {
@@ -20,6 +24,12 @@ class SupportTests {
         assertEquals(100, arr.length);
         for (int n : new int[]{0, 1, 2})
             assertEquals(n * 100, arr[n]);
+
+        arr = ThreadLocalRandom.current().ints(1000, 0, 20).toArray();
+        int[] arr2 = Arrays.copyOf(arr, arr.length);
+        ArraysSupport.countingSort(arr);
+        Arrays.sort(arr2);
+        assertArrayEquals(arr, arr2);
 
 
     }

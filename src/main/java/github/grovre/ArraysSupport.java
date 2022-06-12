@@ -62,6 +62,25 @@ public class ArraysSupport {
     }
 
     /**
+     * Finds the minimum and maximum.
+     * This differs from the min and max methods
+     * already provided by this class
+     * by finding both in a single pass.
+     *
+     * @param arr The array to find minimum and maximum within.
+     * @return A sorted array with minimum and maximum, respectively.
+     */
+    public static int[] minmax(@NonNull final int[] arr) {
+        int min = arr[0];
+        int max = arr[0];
+        for (int n : arr) {
+            min = FastMath.min(min, n);
+            max = FastMath.max(max, n);
+        }
+        return new int[]{min, max};
+    }
+
+    /**
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
@@ -101,5 +120,34 @@ public class ArraysSupport {
                 return i;
         }
         return -1;
+    }
+
+    /**
+     * <P>
+     *     <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
+     * </P>
+     * <P>
+     *     Counting sort is an efficient sorting method with worst-case performance
+     *     of O(n+k), where k is the maximum number in an array. This means it is best on arrays
+     *     that contain a small difference between the minimum and maximum. For example,
+     *     sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
+     *     of counting sorts. The larger the difference between min and max of an array, despite the size
+     *     of the array being sorted, will consume a larger amount of memory.
+     * </P>
+     * <P>
+     *     The algorithm creates a temporary array (map) with a length of the maximum number.
+     *     It will then iterate through the array being sorted, placing every number
+     *     into an index of the same number. The map is then iterated linearly beginning from 0, placing
+     *     the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
+     * </P>
+     * <P>
+     *     This implementation of counting sort involves an offset variable to accommodate for negative numbers.
+     *     That means the length of the map will be <code>max + -min</code>. If the offset is >= 0, the offset is 0.
+     * </P>
+     *
+     * @param arr The array to sort
+     */
+    public static void countingSort(@NonNull final int[] arr) {
+        Sort.countingSort(arr);
     }
 }
