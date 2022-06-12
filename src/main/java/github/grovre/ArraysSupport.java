@@ -846,4 +846,148 @@ public class ArraysSupport {
     public static boolean disjoint(@NonNull double[] arr1, @NonNull double[] arr2) {
         return Arrays.stream(arr1).filter(n -> Arrays.stream(arr2).anyMatch(n2 -> n == n2)).count() == 0;
     }
+
+    /**
+     * <P>
+     *     Returns the number of elements in the specified array equal to the specified target.
+     *     Does a basic linear search on an array using a for loop.
+     * </P>
+     *
+     * @param arr The array to search
+     * @param target The target to search for
+     * @return The amount of appearances of the target in the given array
+     */
+    public static int frequency(@NonNull int[] arr, int target) {
+        int count = 0;
+        for (int n : arr)
+            if (n == target)
+                count++;
+        return count;
+    }
+
+    /**
+     * <P>
+     *     Returns the number of elements in the specified array equal to the specified target.
+     *     Does a basic linear search on an array using a for loop.
+     * </P>
+     *
+     * @param arr The array to search
+     * @param target The target to search for
+     * @return The amount of appearances of the target in the given array
+     */
+    public static int frequency(@NonNull byte[] arr, byte target) {
+        int count = 0;
+        for (byte n : arr)
+            if (n == target)
+                count++;
+        return count;
+    }
+
+    /**
+     * <P>
+     *     Returns the number of elements in the specified array equal to the specified target.
+     *     Does a basic linear search on an array using a for loop.
+     * </P>
+     *
+     * @param arr The array to search
+     * @param target The target to search for
+     * @return The amount of appearances of the target in the given array
+     */
+    public static int frequency(@NonNull short[] arr, short target) {
+        int count = 0;
+        for (short n : arr)
+            if (n == target)
+                count++;
+        return count;
+    }
+
+    /**
+     * <P>
+     *     Returns the number of elements in the specified array equal to the specified target.
+     *     Does a basic linear search on an array using a for loop.
+     * </P>
+     *
+     * @param arr The array to search
+     * @param target The target to search for
+     * @return The amount of appearances of the target in the given array
+     */
+    public static int frequency(@NonNull long[] arr, long target) {
+        int count = 0;
+        for (long n : arr)
+            if (n == target)
+                count++;
+        return count;
+    }
+
+    /**
+     * <P>
+     *     Returns the number of elements in the specified array equal to the specified target.
+     *     Does a basic linear search on an array using a for loop.
+     * </P>
+     *
+     * @param arr The array to search
+     * @param target The target to search for
+     * @return The amount of appearances of the target in the given array
+     */
+    public static int frequency(@NonNull double[] arr, double target) {
+        int count = 0;
+        for (double n : arr)
+            if (n == target)
+                count++;
+        return count;
+    }
+
+    /**
+     * <P>
+     *     Returns the number of elements in the specified array equal to the specified target.
+     *     Does a basic linear search on an array using a for loop.
+     * </P>
+     *
+     * @param arr The array to search
+     * @param target The target to search for
+     * @return The amount of appearances of the target in the given array
+     */
+    public static int frequency(@NonNull float[] arr, float target) {
+        int count = 0;
+        for (float n : arr)
+            if (n == target)
+                count++;
+        return count;
+    }
+
+    /**
+     * <P>
+     *     Returns the number of elements in the specified array equal to the specified target.
+     *     Does a basic linear search on an array using a for loop.
+     * </P>
+     *
+     * @param arr The array to search
+     * @param target The target to search for
+     * @return The amount of appearances of the target in the given array
+     */
+    public static int frequency(@NonNull boolean[] arr, boolean target) {
+        int count = 0;
+        for (boolean n : arr)
+            if (n == target)
+                count++;
+        return count;
+    }
+
+    /**
+     * <P>
+     *     Returns the number of elements in the specified array equal to the specified target.
+     *     Does a basic linear search on an array using a for loop.
+     * </P>
+     *
+     * @param arr The array to search
+     * @param target The target to search for
+     * @return The amount of appearances of the target in the given array
+     */
+    public static int frequency(@NonNull char[] arr, char target) {
+        int count = 0;
+        for (char n : arr)
+            if (n == target)
+                count++;
+        return count;
+    }
 }

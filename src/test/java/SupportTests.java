@@ -38,5 +38,8 @@ class SupportTests {
         arr2 = IntStream.range(999, 2000).toArray();
         assertFalse(ArraysSupport.disjoint(arr, arr2));
         assertFalse(ArraysSupport.disjoint(arr2, arr));
+
+        arr = new int[]{1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 1, 2, 3};
+        assertEquals(3, ArraysSupport.frequency(arr, 1));
     }
 }
