@@ -60,13 +60,14 @@ class Sort {
         }
     }
 
-    // This one was fun refactoring
+    // This one was actually fun refactoring
     public static void countingSort(@NonNull final boolean[] arr) {
         if (arr.length < 2)
             return;
 
         int[] map = new int[2];
         for (boolean b : arr)
+            // Wish this was C++ when it comes to working with booleans
             map[b ? 1 : 0]++; // if true then 1 else 0
 
         int i = 0;
@@ -76,7 +77,7 @@ class Sort {
         }
         while (map[1] > 0) {
             arr[i++] = true;
-            map[0]--;
+            map[1]--;
         }
     }
 }
