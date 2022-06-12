@@ -15,6 +15,7 @@ import java.util.function.*;
  * the best speed. Improvements can always be made to this class
  * by <a href="https://github.com/Grovre/ArraysSupport">creating a pull request on Github</a>.
  */
+@SuppressWarnings("unused")
 @UtilityClass
 public class ArraysSupport {
 
@@ -947,7 +948,7 @@ public class ArraysSupport {
      * @return True if both arrays have no elements in common. False if they both contain
      */
     public static <T> boolean disjoint(@NonNull T[] arr1, @NonNull T[] arr2) {
-        return Arrays.stream(arr1).noneMatch(o -> Arrays.stream(arr2).anyMatch(o::equals));
+        return Arrays.stream(arr1).noneMatch(o -> Arrays.asList(arr2).contains(o));
     }
 
     /**
