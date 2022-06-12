@@ -3,9 +3,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class SupportTests {
 
@@ -30,6 +30,13 @@ class SupportTests {
         ArraysSupport.countingSort(boolArr);
         assertArrayEquals(new boolean[]{false, false, true, true, true, true, true, true}, boolArr);
 
-
+        arr = IntStream.range(0, 1000).toArray();
+        arr2 = IntStream.range(1000, 2000).toArray();
+        assertTrue(ArraysSupport.disjoint(arr, arr2));
+        assertTrue(ArraysSupport.disjoint(arr2, arr));
+        arr = IntStream.range(0, 1000).toArray();
+        arr2 = IntStream.range(999, 2000).toArray();
+        assertFalse(ArraysSupport.disjoint(arr, arr2));
+        assertFalse(ArraysSupport.disjoint(arr2, arr));
     }
 }
