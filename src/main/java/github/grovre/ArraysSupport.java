@@ -4,7 +4,10 @@ import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.math3.util.FastMath;
 
-import java.util.function.IntUnaryOperator;
+import java.util.function.BooleanSupplier;
+import java.util.function.DoubleSupplier;
+import java.util.function.IntSupplier;
+import java.util.function.LongSupplier;
 
 
 /**
@@ -24,12 +27,108 @@ public class ArraysSupport {
      *
      * @param op The operation to generate the elements
      * @param len The length of the array
-     * @return A new int array after applying the generating function to all indices
+     * @return A new array after applying the generating function to all indices
      */
-    public static int[] generate(IntUnaryOperator op, int len) {
+    public static int[] generateInt(IntSupplier op, int len) {
         int[] arr = new int[len];
         for (int i = 0; i < arr.length; i++)
-            arr[i] = op.applyAsInt(i);
+            arr[i] = op.getAsInt();
+        return arr;
+    }
+
+    /**
+     * Generates an array based off of the generate function provided.
+     * The parameter to the generate function is the index; the first
+     * index, 0, is applied to the function and assigned to index 0 and so on.
+     *
+     * @param op The operation to generate the elements
+     * @param len The length of the array
+     * @return A new array after applying the generating function to all indices
+     */
+    public static short[] generateShort(IntSupplier op, int len) {
+        short[] arr = new short[len];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = (short) op.getAsInt();
+        return arr;
+    }
+
+    /**
+     * Generates an array based off of the generate function provided.
+     * The parameter to the generate function is the index; the first
+     * index, 0, is applied to the function and assigned to index 0 and so on.
+     *
+     * @param op The operation to generate the elements
+     * @param len The length of the array
+     * @return A new array after applying the generating function to all indices
+     */
+    public static byte[] generateByte(IntSupplier op, int len) {
+        byte[] arr = new byte[len];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = (byte) op.getAsInt();
+        return arr;
+    }
+
+    /**
+     * Generates an array based off of the generate function provided.
+     * The parameter to the generate function is the index; the first
+     * index, 0, is applied to the function and assigned to index 0 and so on.
+     *
+     * @param op The operation to generate the elements
+     * @param len The length of the array
+     * @return A new array after applying the generating function to all indices
+     */
+    public static long[] generateLong(LongSupplier op, int len) {
+        long[] arr = new long[len];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = op.getAsLong();
+        return arr;
+    }
+
+    /**
+     * Generates an array based off of the generate function provided.
+     * The parameter to the generate function is the index; the first
+     * index, 0, is applied to the function and assigned to index 0 and so on.
+     *
+     * @param op The operation to generate the elements
+     * @param len The length of the array
+     * @return A new array after applying the generating function to all indices
+     */
+    public static boolean[] generateBoolean(BooleanSupplier op, int len) {
+        boolean[] arr = new boolean[len];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = op.getAsBoolean();
+        return arr;
+    }
+
+    /**
+     * Generates an array based off of the generate function provided.
+     * The parameter to the generate function is the index; the first
+     * index, 0, is applied to the function and assigned to index 0 and so on.
+     *
+     * @param op The operation to generate the elements
+     * @param len The length of the array
+     * @return A new array after applying the generating function to all indices
+     */
+    public static double[] generateDouble(DoubleSupplier op, int len) {
+        double[] arr = new double[len];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = op.getAsDouble();
+        return arr;
+    }
+
+    /**
+     * Generates an array based off of the generate function provided.
+     * The parameter to the generate function is the index; the first
+     * index, 0, is applied to the function and assigned to index 0 and so on.
+     *
+     * @param op The operation to generate the elements
+     * @param len The length of the array
+     * @return A new array after applying the generating function to all indices
+     */
+    public static float[] generateFloat(DoubleSupplier op, int len) {
+        float[] arr = new float[len];
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = (float) op.getAsDouble();
         return arr;
     }
 
@@ -49,6 +148,90 @@ public class ArraysSupport {
 
     /**
      * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the max.
+     *
+     * @param arr The array to be searched for the max
+     * @return The max number from the array
+     */
+    public static byte max(@NonNull final byte[] arr) {
+        int max = arr[0];
+        for (byte n : arr)
+            max = FastMath.max(max, n);
+        return (byte) max;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the max.
+     *
+     * @param arr The array to be searched for the max
+     * @return The max number from the array
+     */
+    public static short max(@NonNull final short[] arr) {
+        int max = arr[0];
+        for (short n : arr)
+            max = FastMath.max(max, n);
+        return (short) max;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the max.
+     *
+     * @param arr The array to be searched for the max
+     * @return The max number from the array
+     */
+    public static long max(@NonNull final long[] arr) {
+        long max = arr[0];
+        for (long n : arr)
+            max = FastMath.max(max, n);
+        return max;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the max.
+     *
+     * @param arr The array to be searched for the max
+     * @return The max number from the array
+     */
+    public static double max(@NonNull final double[] arr) {
+        double max = arr[0];
+        for (double n : arr)
+            max = FastMath.max(max, n);
+        return max;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the max.
+     *
+     * @param arr The array to be searched for the max
+     * @return The max number from the array
+     */
+    public static float max(@NonNull final float[] arr) {
+        float max = arr[0];
+        for (float n : arr)
+            max = FastMath.max(max, n);
+        return max;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the max.
+     *
+     * @param arr The array to be searched for the max
+     * @return The max number from the array
+     */
+    public static char max(@NonNull final char[] arr) {
+        int max = arr[0];
+        for (char n : arr)
+            max = FastMath.max(max, n);
+        return (char) max;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
      * {@link FastMath} utility class to find the min.
      *
      * @param arr The array to be searched for the min
@@ -59,6 +242,90 @@ public class ArraysSupport {
         for(int n : arr)
             min = FastMath.min(min, n);
         return min;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the min.
+     *
+     * @param arr The array to be searched for the min
+     * @return The min number from the array
+     */
+    public static short min(@NonNull final short[] arr) {
+        int min = arr[0];
+        for(short n : arr)
+            min = FastMath.min(min, n);
+        return (short) min;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the min.
+     *
+     * @param arr The array to be searched for the min
+     * @return The min number from the array
+     */
+    public static byte min(@NonNull final byte[] arr) {
+        int min = arr[0];
+        for (byte n : arr)
+            min = FastMath.min(min, n);
+        return (byte) min;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the min.
+     *
+     * @param arr The array to be searched for the min
+     * @return The min number from the array
+     */
+    public static long min(@NonNull final long[] arr) {
+        long min = arr[0];
+        for (long n : arr)
+            min = FastMath.min(min, n);
+        return min;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the min.
+     *
+     * @param arr The array to be searched for the min
+     * @return The min number from the array
+     */
+    public static float min(@NonNull final float[] arr) {
+        float min = arr[0];
+        for (float n : arr)
+            min = FastMath.min(min, n);
+        return min;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the min.
+     *
+     * @param arr The array to be searched for the min
+     * @return The min number from the array
+     */
+    public static double min(@NonNull final double[] arr) {
+        double min = arr[0];
+        for (double n : arr)
+            min = FastMath.min(min, n);
+        return min;
+    }
+
+    /**
+     * Linearly searches through an array using Apache Common's
+     * {@link FastMath} utility class to find the min.
+     *
+     * @param arr The array to be searched for the min
+     * @return The min number from the array
+     */
+    public static char min(@NonNull final char[] arr) {
+        int min = arr[0];
+        for(char n : arr)
+            min = FastMath.min(min, n);
+        return (char) min;
     }
 
     /**
@@ -81,6 +348,101 @@ public class ArraysSupport {
     }
 
     /**
+     * Finds the minimum and maximum.
+     * This differs from the min and max methods
+     * already provided by this class
+     * by finding both in a single pass.
+     *
+     * @param arr The array to find minimum and maximum within.
+     * @return A sorted array with minimum and maximum, respectively.
+     */
+    public static long[] minmax(@NonNull final long[] arr) {
+        long min = arr[0];
+        long max = arr[0];
+        for (long n : arr) {
+            min = FastMath.min(min, n);
+            max = FastMath.max(max, n);
+        }
+        return new long[]{min, max};
+    }
+
+    /**
+     * Finds the minimum and maximum.
+     * This differs from the min and max methods
+     * already provided by this class
+     * by finding both in a single pass.
+     *
+     * @param arr The array to find minimum and maximum within.
+     * @return A sorted array with minimum and maximum, respectively.
+     */
+    public static byte[] minmax(@NonNull final byte[] arr) {
+        int min = arr[0];
+        int max = arr[0];
+        for (byte n : arr) {
+            min = FastMath.min(min, n);
+            max = FastMath.max(max, n);
+        }
+        return new byte[]{(byte) min, (byte) max};
+    }
+
+    /**
+     * Finds the minimum and maximum.
+     * This differs from the min and max methods
+     * already provided by this class
+     * by finding both in a single pass.
+     *
+     * @param arr The array to find minimum and maximum within.
+     * @return A sorted array with minimum and maximum, respectively.
+     */
+    public static short[] minmax(@NonNull final short[] arr) {
+        int min = arr[0];
+        int max = arr[0];
+        for (short n : arr) {
+            min = FastMath.min(min, n);
+            max = FastMath.max(max, n);
+        }
+        return new short[]{(short) min, (short) max};
+    }
+
+    /**
+     * Finds the minimum and maximum.
+     * This differs from the min and max methods
+     * already provided by this class
+     * by finding both in a single pass.
+     *
+     * @param arr The array to find minimum and maximum within.
+     * @return A sorted array with minimum and maximum, respectively.
+     */
+    public static float[] minmax(@NonNull final float[] arr) {
+        float min = arr[0];
+        float max = arr[0];
+        for (float n : arr) {
+            min = FastMath.min(min, n);
+            max = FastMath.max(max, n);
+        }
+        return new float[]{min, max};
+    }
+
+    /**
+     * Finds the minimum and maximum.
+     * This differs from the min and max methods
+     * already provided by this class
+     * by finding both in a single pass.
+     *
+     * @param arr The array to find minimum and maximum within.
+     * @return A sorted array with minimum and maximum, respectively.
+     */
+    public static double[] minmax(@NonNull final double[] arr) {
+        double min = arr[0];
+        double max = arr[0];
+        for (double n : arr) {
+            min = FastMath.min(min, n);
+            max = FastMath.max(max, n);
+        }
+        return new double[]{min, max};
+    }
+
+    /**
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
@@ -93,6 +455,90 @@ public class ArraysSupport {
     }
 
     /**
+     * Finds the first occurrence of the target parameter
+     * using {@code firstIndexOf} from this class.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int indexOf(@NonNull final long[] arr, final long target) {
+        return firstIndexOf(arr, target);
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter
+     * using {@code firstIndexOf} from this class.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int indexOf(@NonNull final short[] arr, final short target) {
+        return firstIndexOf(arr, target);
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter
+     * using {@code firstIndexOf} from this class.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int indexOf(@NonNull final byte[] arr, final byte target) {
+        return firstIndexOf(arr, target);
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter
+     * using {@code firstIndexOf} from this class.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int indexOf(@NonNull final float[] arr, final float target) {
+        return firstIndexOf(arr, target);
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter
+     * using {@code firstIndexOf} from this class.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int indexOf(@NonNull final double[] arr, final double target) {
+        return firstIndexOf(arr, target);
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter
+     * using {@code firstIndexOf} from this class.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the targdoubleet, or -1 if it doesn't exist.
+     */
+    public static int indexOf(@NonNull final char[] arr, final char target) {
+        return firstIndexOf(arr, target);
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter
+     * using {@code firstIndexOf} from this class.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the targdoubleet, or -1 if it doesn't exist.
+     */
+    public static int indexOf(@NonNull final boolean[] arr, final boolean target) {
+        return firstIndexOf(arr, target);
+    }
+
+    /**
      * Finds the first occurrence of the target parameter.
      *
      * @param arr The array to find the target in
@@ -100,6 +546,111 @@ public class ArraysSupport {
      * @return The index of the target, or -1 if it doesn't exist.
      */
     public static int firstIndexOf(@NonNull final int[] arr, final int target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target)
+                return i;
+        }
+        return -1;
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int firstIndexOf(@NonNull final boolean[] arr, final boolean target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target)
+                return i;
+        }
+        return -1;
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int firstIndexOf(@NonNull final long[] arr, final long target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target)
+                return i;
+        }
+        return -1;
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int firstIndexOf(@NonNull final short[] arr, final short target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target)
+                return i;
+        }
+        return -1;
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int firstIndexOf(@NonNull final byte[] arr, final byte target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target)
+                return i;
+        }
+        return -1;
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int firstIndexOf(@NonNull final float[] arr, final float target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target)
+                return i;
+        }
+        return -1;
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int firstIndexOf(@NonNull final double[] arr, final double target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target)
+                return i;
+        }
+        return -1;
+    }
+
+    /**
+     * Finds the first occurrence of the target parameter.
+     *
+     * @param arr The array to find the target in
+     * @param target The target to find
+     * @return The index of the target, or -1 if it doesn't exist.
+     */
+    public static int firstIndexOf(@NonNull final char[] arr, final char target) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == target)
                 return i;
@@ -148,6 +699,89 @@ public class ArraysSupport {
      * @param arr The array to sort
      */
     public static void countingSort(@NonNull final int[] arr) {
+        Sort.countingSort(arr);
+    }
+
+    /**
+     * <P>
+     *     <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
+     * </P>
+     * <P>
+     *     Counting sort is an efficient sorting method with worst-case performance
+     *     of O(n+k), where k is the maximum number in an array. This means it is best on arrays
+     *     that contain a small difference between the minimum and maximum. For example,
+     *     sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
+     *     of counting sorts. The larger the difference between min and max of an array, despite the size
+     *     of the array being sorted, will consume a larger amount of memory.
+     * </P>
+     * <P>
+     *     The algorithm creates a temporary array (map) with a length of the maximum number.
+     *     It will then iterate through the array being sorted, placing every number
+     *     into an index of the same number. The map is then iterated linearly beginning from 0, placing
+     *     the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
+     * </P>
+     * <P>
+     *     This implementation of counting sort involves an offset variable to accommodate for negative numbers.
+     *     That means the length of the map will be <code>max + -min</code>. If the offset is >= 0, the offset is 0.
+     * </P>
+     *
+     * @param arr The array to sort
+     */
+    public static void countingSort(@NonNull final short[] arr) {
+        Sort.countingSort(arr);
+    }
+
+    /**
+     * <P>
+     *     <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
+     * </P>
+     * <P>
+     *     Counting sort is an efficient sorting method with worst-case performance
+     *     of O(n+k), where k is the maximum number in an array. This means it is best on arrays
+     *     that contain a small difference between the minimum and maximum. For example,
+     *     sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
+     *     of counting sorts. The larger the difference between min and max of an array, despite the size
+     *     of the array being sorted, will consume a larger amount of memory.
+     * </P>
+     * <P>
+     *     The algorithm creates a temporary array (map) with a length of the maximum number.
+     *     It will then iterate through the array being sorted, placing every number
+     *     into an index of the same number. The map is then iterated linearly beginning from 0, placing
+     *     the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
+     * </P>
+     * <P>
+     *     This implementation of counting sort involves an offset variable to accommodate for negative numbers.
+     *     That means the length of the map will be <code>max + -min</code>. If the offset is >= 0, the offset is 0.
+     * </P>
+     *
+     * @param arr The array to sort
+     */
+    public static void countingSort(@NonNull final byte[] arr) {
+        Sort.countingSort(arr);
+    }
+
+    /**
+     * <P>
+     *     <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
+     * </P>
+     * <P>
+     *     Counting sort is an efficient sorting method with worst-case performance
+     *     of O(n+k), where k is the maximum number in an array. This means it is best on arrays
+     *     that contain a small difference between the minimum and maximum. For example,
+     *     sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
+     *     of counting sorts. The larger the difference between min and max of an array, despite the size
+     *     of the array being sorted, will consume a larger amount of memory.
+     * </P>
+     * <P>
+     *     The algorithm creates a temporary array (map) with a length of the maximum number.
+     *     It will then iterate through the array being sorted, placing every number
+     *     into an index of the same number. The map is then iterated linearly beginning from 0, placing
+     *     the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
+     * </P>
+     *
+     * @param arr The array to sort
+     */
+    public static void countingSort(@NonNull final boolean[] arr) {
         Sort.countingSort(arr);
     }
 }
