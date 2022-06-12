@@ -20,6 +20,10 @@ class SupportTests {
         Arrays.sort(arr);
         assertEquals(0, ArraysSupport.indexOf(arr, new Square(0)));
         assertEquals(arr.length-1, ArraysSupport.indexOf(arr, new Square(1_001)));
+
+        arr = IntStream.range(-1_000, 1_000).mapToObj(Square::new).toArray(Square[]::new);
+        ArraysSupport.replaceAll(arr, new Square(-1_000), new Square(9_999));
+        assertEquals(arr[0], new Square(9_999));
     }
 
     @Test

@@ -1113,7 +1113,216 @@ public class ArraysSupport {
         return count;
     }
 
-    // TODO: 6/12/2022 replaceAll
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param newVal The new value
+     * @return True if at least one element was replaced
+     */
+    public static boolean replaceAll(@NonNull int[] arr, int oldVal, int newVal) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == oldVal) {
+                arr[i] = newVal;
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param newVal The new value
+     * @return True if at least one element was replaced
+     */
+    public static boolean replaceAll(@NonNull long[] arr, long oldVal, long newVal) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == oldVal) {
+                arr[i] = newVal;
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param newVal The new value
+     * @return True if at least one element was replaced
+     */
+    public static boolean replaceAll(@NonNull byte[] arr, byte oldVal, byte newVal) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == oldVal) {
+                arr[i] = newVal;
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param newVal The new value
+     * @return True if at least one element was replaced
+     */
+    public static boolean replaceAll(@NonNull short[] arr, short oldVal, short newVal) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == oldVal) {
+                arr[i] = newVal;
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param newVal The new value
+     * @return True if at least one element was replaced
+     */
+    public static boolean replaceAll(@NonNull float[] arr, float oldVal, float newVal) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == oldVal) {
+                arr[i] = newVal;
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param newVal The new value
+     * @return True if at least one element was replaced
+     */
+    public static boolean replaceAll(@NonNull double[] arr, double oldVal, double newVal) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == oldVal) {
+                arr[i] = newVal;
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param newVal The new value
+     * @return True if at least one element was replaced
+     */
+    public static boolean replaceAll(@NonNull boolean[] arr, boolean oldVal, boolean newVal) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == oldVal) {
+                arr[i] = newVal;
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param newVal The new value
+     * @return True if at least one element was replaced
+     */
+    public static boolean replaceAll(@NonNull char[] arr, char oldVal, char newVal) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == oldVal) {
+                arr[i] = newVal;
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param newVal The new value
+     * @return True if at least one element was replaced
+     */
+    public static <T> boolean replaceAll(@NonNull T[] arr, T oldVal, T newVal) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(oldVal)) {
+                arr[i] = newVal;
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
+    /**
+     * <P>
+     *     Replaces all occurrences of one specified value in a list with another.
+     * </P>
+     *
+     * @param arr The array
+     * @param oldVal The old value to be replaced
+     * @param supplier The supplier that will generate the replacing value
+     * @return True if at least one element was replaced
+     */
+    public static <T> boolean replaceAll(@NonNull T[] arr, T oldVal, Supplier<T> supplier) {
+        boolean replaced = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(oldVal)) {
+                arr[i] = supplier.get();
+                replaced = true;
+            }
+        }
+        return replaced;
+    }
+
     // TODO: 6/12/2022 rotate
     // TODO: 6/12/2022 reverse 
     // TODO: 6/12/2022 shuffle 
