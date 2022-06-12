@@ -4,6 +4,7 @@ import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.math3.util.FastMath;
 
+import java.util.Arrays;
 import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
 import java.util.function.IntSupplier;
@@ -793,5 +794,56 @@ public class ArraysSupport {
      */
     public static void countingSort(@NonNull final boolean[] arr) {
         Sort.countingSort(arr);
+    }
+
+    /**
+     * <P>
+     *     Returns true if the two specified arrays have no elements in common.
+     * </P>
+     * <P>
+     *     This method streams both arrays then uses filtering and anyMatch to
+     *     determine if they have anything in common. This method's speed is untested.
+     * </P>
+     *
+     * @param arr1 The first array
+     * @param arr2 The second array
+     * @return True if both arrays have no elements in common. False if they both contain
+     */
+    public static boolean disjoint(@NonNull int[] arr1, @NonNull int[] arr2) {
+        return Arrays.stream(arr1).filter(n -> Arrays.stream(arr2).anyMatch(n2 -> n == n2)).count() == 0;
+    }
+
+    /**
+     * <P>
+     *     Returns true if the two specified arrays have no elements in common.
+     * </P>
+     * <P>
+     *     This method streams both arrays then uses filtering and anyMatch to
+     *     determine if they have anything in common. This method's speed is untested.
+     * </P>
+     *
+     * @param arr1 The first array
+     * @param arr2 The second array
+     * @return True if both arrays have no elements in common. False if they both contain
+     */
+    public static boolean disjoint(@NonNull long[] arr1, @NonNull long[] arr2) {
+        return Arrays.stream(arr1).filter(n -> Arrays.stream(arr2).anyMatch(n2 -> n == n2)).count() == 0;
+    }
+
+    /**
+     * <P>
+     *     Returns true if the two specified arrays have no elements in common.
+     * </P>
+     * <P>
+     *     This method streams both arrays then uses filtering and anyMatch to
+     *     determine if they have anything in common. This method's speed is untested.
+     * </P>
+     *
+     * @param arr1 The first array
+     * @param arr2 The second array
+     * @return True if both arrays have no elements in common. False if they both contain
+     */
+    public static boolean disjoint(@NonNull double[] arr1, @NonNull double[] arr2) {
+        return Arrays.stream(arr1).filter(n -> Arrays.stream(arr2).anyMatch(n2 -> n == n2)).count() == 0;
     }
 }
