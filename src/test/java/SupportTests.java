@@ -2,6 +2,7 @@ import github.grovre.ArraysSupport;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
 
@@ -24,6 +25,15 @@ class SupportTests {
         arr = IntStream.range(-1_000, 1_000).mapToObj(Square::new).toArray(Square[]::new);
         ArraysSupport.replaceAll(arr, new Square(-1_000), new Square(9_999));
         assertEquals(arr[0], new Square(9_999));
+
+        arr = IntStream.range(0, 10).mapToObj(Square::new).toArray(Square[]::new);
+        Square[] arr2 = Arrays.stream(arr).sorted(Comparator.reverseOrder()).toArray(Square[]::new);
+        ArraysSupport.reverse(arr);
+        assertArrayEquals(arr2,arr);
+        ArraysSupport.reverse(arr); // go back
+
+        ArraysSupport.swap(arr, 0, arr.length-1);
+        assertEquals(new Square(9), arr[0]);
     }
 
     @Test

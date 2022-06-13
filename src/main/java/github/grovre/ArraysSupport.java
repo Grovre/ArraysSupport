@@ -1323,10 +1323,233 @@ public class ArraysSupport {
         return replaced;
     }
 
+    /**
+     * Simply swaps the elements at two indices using a temp variable.
+     *
+     * @param arr The array to swap in
+     * @param i1 The first index to swap
+     * @param i2 The second index to swap
+     */
+    public static void swap(@NonNull int[] arr, int i1, int i2) {
+        int temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    /**
+     * Simply swaps the elements at two indices using a temp variable.
+     *
+     * @param arr The array to swap in
+     * @param i1 The first index to swap
+     * @param i2 The second index to swap
+     */
+    public static void swap(@NonNull char[] arr, int i1, int i2) {
+        char temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    /**
+     * Simply swaps the elements at two indices using a temp variable.
+     *
+     * @param arr The array to swap in
+     * @param i1 The first index to swap
+     * @param i2 The second index to swap
+     */
+    public static void swap(@NonNull boolean[] arr, int i1, int i2) {
+        boolean temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    /**
+     * Simply swaps the elements at two indices using a temp variable.
+     *
+     * @param arr The array to swap in
+     * @param i1 The first index to swap
+     * @param i2 The second index to swap
+     */
+    public static void swap(@NonNull short[] arr, int i1, int i2) {
+        short temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    /**
+     * Simply swaps the elements at two indices using a temp variable.
+     *
+     * @param arr The array to swap in
+     * @param i1 The first index to swap
+     * @param i2 The second index to swap
+     */
+    public static void swap(@NonNull byte[] arr, int i1, int i2) {
+        byte temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    /**
+     * Simply swaps the elements at two indices using a temp variable.
+     *
+     * @param arr The array to swap in
+     * @param i1 The first index to swap
+     * @param i2 The second index to swap
+     */
+    public static void swap(@NonNull long[] arr, int i1, int i2) {
+        long temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    /**
+     * Simply swaps the elements at two indices using a temp variable.
+     *
+     * @param arr The array to swap in
+     * @param i1 The first index to swap
+     * @param i2 The second index to swap
+     */
+    public static void swap(@NonNull float[] arr, int i1, int i2) {
+        float temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    /**
+     * Simply swaps the elements at two indices using a temp variable.
+     *
+     * @param arr The array to swap in
+     * @param i1 The first index to swap
+     * @param i2 The second index to swap
+     */
+    public static void swap(@NonNull double[] arr, int i1, int i2) {
+        double temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    /**
+     * Simply swaps the elements at two indices using a temp variable.
+     *
+     * @param arr The array to swap in
+     * @param i1 The first index to swap
+     * @param i2 The second index to swap
+     */
+    public static <T> void swap(@NonNull T[] arr, int i1, int i2) {
+        T temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+    }
+
+    /**
+     * Reverses an array by swapping elements equidistant from both edges until the middle
+     *
+     * @param arr The array to reverse
+     */
+    public static void reverse(@NonNull int[] arr) {
+        final int len = arr.length;
+        final int mid = len / 2;
+        for (int i = 0; i < mid; i++)
+            swap(arr, i, len - i - 1);
+    }
+
+    /**
+     * Reverses an array by swapping elements equidistant from both edges until the middle
+     *
+     * @param arr The array to reverse
+     */
+    public static void reverse(@NonNull byte[] arr) {
+        final int len = arr.length;
+        final int mid = len / 2;
+        for (int i = 0; i < mid; i++)
+            swap(arr, i, len - i - 1);
+    }
+
+    /**
+     * Reverses an array by swapping elements equidistant from both edges until the middle
+     *
+     * @param arr The array to reverse
+     */
+    public static void reverse(@NonNull short[] arr) {
+        final int len = arr.length;
+        final int mid = len / 2;
+        for (int i = 0; i < mid; i++)
+            swap(arr, i, len - i - 1);
+    }
+
+    /**
+     * Reverses an array by swapping elements equidistant from both edges until the middle
+     *
+     * @param arr The array to reverse
+     */
+    public static void reverse(@NonNull long[] arr) {
+        final int len = arr.length;
+        final int mid = len / 2;
+        for (int i = 0; i < mid; i++)
+            swap(arr, i, len - i - 1);
+    }
+
+    /**
+     * Reverses an array by swapping elements equidistant from both edges until the middle
+     *
+     * @param arr The array to reverse
+     */
+    public static void reverse(@NonNull float[] arr) {
+        final int len = arr.length;
+        final int mid = len / 2;
+        for (int i = 0; i < mid; i++)
+            swap(arr, i, len - i - 1);
+    }
+
+    /**
+     * Reverses an array by swapping elements equidistant from both edges until the middle
+     *
+     * @param arr The array to reverse
+     */
+    public static void reverse(@NonNull double[] arr) {
+        final int len = arr.length;
+        final int mid = len / 2;
+        for (int i = 0; i < mid; i++)
+            swap(arr, i, len - i - 1);
+    }
+
+    /**
+     * Reverses an array by swapping elements equidistant from both edges until the middle
+     *
+     * @param arr The array to reverse
+     */
+    public static void reverse(@NonNull boolean[] arr) {
+        final int len = arr.length;
+        final int mid = len / 2;
+        for (int i = 0; i < mid; i++)
+            swap(arr, i, len - i - 1);
+    }
+
+    /**
+     * Reverses an array by swapping elements equidistant from both edges until the middle
+     *
+     * @param arr The array to reverse
+     */
+    public static void reverse(@NonNull char[] arr) {
+        final int len = arr.length;
+        final int mid = len / 2;
+        for (int i = 0; i < mid; i++)
+            swap(arr, i, len - i - 1);
+    }
+
+    /**
+     * Reverses an array by swapping elements equidistant from both edges until the middle
+     *
+     * @param arr The array to reverse
+     */
+    public static <T> void reverse(@NonNull T[] arr) {
+        final int len = arr.length;
+        final int mid = len / 2;
+        for (int i = 0; i < mid; i++)
+            swap(arr, i, len - i - 1);
+    }
+
     // TODO: 6/12/2022 rotate
-    // TODO: 6/12/2022 reverse 
-    // TODO: 6/12/2022 shuffle 
-    // TODO: 6/12/2022 swap 
+    // TODO: 6/12/2022 shuffle
     // TODO: 6/12/2022 append?
     // TODO: 6/12/2022 prepend?
     // TODO: 6/12/2022 insert?
