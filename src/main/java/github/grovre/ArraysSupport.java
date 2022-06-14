@@ -5,6 +5,7 @@ import lombok.experimental.UtilityClass;
 import org.apache.commons.math3.util.FastMath;
 
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.*;
 
 
@@ -1890,8 +1891,196 @@ public class ArraysSupport {
         ArraysSupport.reverse(arr);
     }
 
-    // TODO: 6/12/2022 shuffle
-    // TODO: 6/12/2022 append?
-    // TODO: 6/12/2022 prepend?
-    // TODO: 6/12/2022 insert?
+    /**
+     * <P>
+     *     Shuffles the array using an indexed for-loop
+     *     and ThreadLocalRandom to get a random index
+     *     to swap
+     * </P>
+     * <P>
+     *     It is theoretically possible that the array turns out
+     *     in the exact same order as it went in, but highly unlikely.
+     * </P>
+     *
+     * @param arr The array to shuffle
+     */
+    public static void shuffle(@NonNull int[] arr) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        for (int i = 0; i < arr.length; i++) {
+            int randomI = tlr.nextInt(arr.length);
+            swap(arr, i, randomI);
+        }
+    }
+
+    /**
+     * <P>
+     *     Shuffles the array using an indexed for-loop
+     *     and ThreadLocalRandom to get a random index
+     *     to swap
+     * </P>
+     * <P>
+     *     It is theoretically possible that the array turns out
+     *     in the exact same order as it went in, but highly unlikely.
+     * </P>
+     *
+     * @param arr The array to shuffle
+     */
+    public static void shuffle(@NonNull double[] arr) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        for (int i = 0; i < arr.length; i++) {
+            int randomI = tlr.nextInt(arr.length);
+            swap(arr, i, randomI);
+        }
+    }
+
+    /**
+     * <P>
+     *     Shuffles the array using an indexed for-loop
+     *     and ThreadLocalRandom to get a random index
+     *     to swap
+     * </P>
+     * <P>
+     *     It is theoretically possible that the array turns out
+     *     in the exact same order as it went in, but highly unlikely.
+     * </P>
+     *
+     * @param arr The array to shuffle
+     */
+    public static void shuffle(@NonNull float[] arr) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        for (int i = 0; i < arr.length; i++) {
+            int randomI = tlr.nextInt(arr.length);
+            swap(arr, i, randomI);
+        }
+    }
+
+    /**
+     * <P>
+     *     Shuffles the array using an indexed for-loop
+     *     and ThreadLocalRandom to get a random index
+     *     to swap
+     * </P>
+     * <P>
+     *     It is theoretically possible that the array turns out
+     *     in the exact same order as it went in, but highly unlikely.
+     * </P>
+     *
+     * @param arr The array to shuffle
+     */
+    public static void shuffle(@NonNull long[] arr) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        for (int i = 0; i < arr.length; i++) {
+            int randomI = tlr.nextInt(arr.length);
+            swap(arr, i, randomI);
+        }
+    }
+
+    /**
+     * <P>
+     *     Shuffles the array using an indexed for-loop
+     *     and ThreadLocalRandom to get a random index
+     *     to swap
+     * </P>
+     * <P>
+     *     It is theoretically possible that the array turns out
+     *     in the exact same order as it went in, but highly unlikely.
+     * </P>
+     *
+     * @param arr The array to shuffle
+     */
+    public static void shuffle(@NonNull char[] arr) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        for (int i = 0; i < arr.length; i++) {
+            int randomI = tlr.nextInt(arr.length);
+            swap(arr, i, randomI);
+        }
+    }
+
+    /**
+     * <P>
+     *     Shuffles the array using an indexed for-loop
+     *     and ThreadLocalRandom to get a random index
+     *     to swap
+     * </P>
+     * <P>
+     *     It is theoretically possible that the array turns out
+     *     in the exact same order as it went in, but highly unlikely.
+     * </P>
+     *
+     * @param arr The array to shuffle
+     */
+    public static void shuffle(@NonNull boolean[] arr) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        for (int i = 0; i < arr.length; i++) {
+            int randomI = tlr.nextInt(arr.length);
+            swap(arr, i, randomI);
+        }
+    }
+
+    /**
+     * <P>
+     *     Shuffles the array using an indexed for-loop
+     *     and ThreadLocalRandom to get a random index
+     *     to swap
+     * </P>
+     * <P>
+     *     It is theoretically possible that the array turns out
+     *     in the exact same order as it went in, but highly unlikely.
+     * </P>
+     *
+     * @param arr The array to shuffle
+     */
+    public static void shuffle(@NonNull short[] arr) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        for (int i = 0; i < arr.length; i++) {
+            int randomI = tlr.nextInt(arr.length);
+            swap(arr, i, randomI);
+        }
+    }
+
+    /**
+     * <P>
+     *     Shuffles the array using an indexed for-loop
+     *     and ThreadLocalRandom to get a random index
+     *     to swap
+     * </P>
+     * <P>
+     *     It is theoretically possible that the array turns out
+     *     in the exact same order as it went in, but highly unlikely.
+     * </P>
+     *
+     * @param arr The array to shuffle
+     */
+    public static void shuffle(@NonNull byte[] arr) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        for (int i = 0; i < arr.length; i++) {
+            int randomI = tlr.nextInt(arr.length);
+            swap(arr, i, randomI);
+        }
+    }
+
+    /**
+     * <P>
+     *     Shuffles the array using an indexed for-loop
+     *     and ThreadLocalRandom to get a random index
+     *     to swap
+     * </P>
+     * <P>
+     *     It is theoretically possible that the array turns out
+     *     in the exact same order as it went in, but highly unlikely.
+     * </P>
+     *
+     * @param arr The array to shuffle
+     */
+    public static <T> void shuffle(@NonNull T[] arr) {
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        for (int i = 0; i < arr.length; i++) {
+            int randomI = tlr.nextInt(arr.length);
+            swap(arr, i, randomI);
+        }
+    }
+
+    // append?
+    // prepend?
+    // insert?
 }

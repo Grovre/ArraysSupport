@@ -75,5 +75,10 @@ class SupportTests {
 
         arr = new int[]{1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1, 0, 1, 2, 3};
         assertEquals(3, ArraysSupport.frequency(arr, 1));
+
+        arr = IntStream.range(0, 100).toArray();
+        arr2 = Arrays.copyOf(arr, arr.length);
+        ArraysSupport.shuffle(arr);
+        assertFalse(Arrays.equals(arr, arr2));
     }
 }

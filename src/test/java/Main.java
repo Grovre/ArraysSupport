@@ -13,7 +13,7 @@ public class Main {
         Collections.rotate(list, 5);
 
         int[] arr = IntStream.rangeClosed(1, 10).toArray();
-        ArraysSupport.rotate(arr, 5);
+        ArraysSupport.shuffle(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
