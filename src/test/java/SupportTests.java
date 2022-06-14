@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,6 +13,7 @@ class SupportTests {
 
     @Test
     void objectTests() {
+
         Square[] arr = ArraysSupport.generate(Square[]::new, () -> new Square((int) (Math.random() * 1_000) + 1), 1_000);
         arr[(int) (Math.random() * 500) + 500] = new Square(1_001); // 500 - 999
         arr[(int) (Math.random() * 500)] = new Square(0); // 0 - 499
@@ -34,6 +36,11 @@ class SupportTests {
 
         ArraysSupport.swap(arr, 0, arr.length-1);
         assertEquals(new Square(9), arr[0]);
+
+        arr = IntStream.range(0, 10).mapToObj(Square::new).toArray(Square[]::new);
+        arr2 = Stream.of(4, 3, 2, 1, 0, 5, 6, 7, 8, 9).map(Square::new).toArray(Square[]::new);
+        ArraysSupport.reverse(arr, 0, 5);
+        assertArrayEquals(arr2, arr);
     }
 
     @Test

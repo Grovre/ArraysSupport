@@ -1548,7 +1548,348 @@ public class ArraysSupport {
             swap(arr, i, len - i - 1);
     }
 
-    // TODO: 6/12/2022 rotate
+    /**
+     * Reverses the given part of an array by swapping elements
+     *
+     * @param arr The array to reverse
+     * @param from The inclusive index to begin from
+     * @param to The exclusive index to reverse up to
+     */
+    public static void reverse(@NonNull int[] arr, int from, int to) {
+        final int len = arr.length;
+        final int mid = (to + from) / 2;
+        for (int i = from, offset = to; i < mid; i++, offset--)
+            swap(arr, i, offset - 1);
+    }
+
+    /**
+     * Reverses the given part of an array by swapping elements
+     *
+     * @param arr The array to reverse
+     * @param from The inclusive index to begin from
+     * @param to The exclusive index to reverse up to
+     */
+    public static void reverse(@NonNull byte[] arr, int from, int to) {
+        final int len = arr.length;
+        final int mid = (to + from) / 2;
+        for (int i = from, offset = to; i < mid; i++, offset--)
+            swap(arr, i, offset - 1);
+    }
+
+    /**
+     * Reverses the given part of an array by swapping elements
+     *
+     * @param arr The array to reverse
+     * @param from The inclusive index to begin from
+     * @param to The exclusive index to reverse up to
+     */
+    public static void reverse(@NonNull short[] arr, int from, int to) {
+        final int len = arr.length;
+        final int mid = (to + from) / 2;
+        for (int i = from, offset = to; i < mid; i++, offset--)
+            swap(arr, i, offset - 1);
+    }
+
+    /**
+     * Reverses the given part of an array by swapping elements
+     *
+     * @param arr The array to reverse
+     * @param from The inclusive index to begin from
+     * @param to The exclusive index to reverse up to
+     */
+    public static void reverse(@NonNull double[] arr, int from, int to) {
+        final int len = arr.length;
+        final int mid = (to + from) / 2;
+        for (int i = from, offset = to; i < mid; i++, offset--)
+            swap(arr, i, offset - 1);
+    }
+
+    /**
+     * Reverses the given part of an array by swapping elements
+     *
+     * @param arr The array to reverse
+     * @param from The inclusive index to begin from
+     * @param to The exclusive index to reverse up to
+     */
+    public static void reverse(@NonNull float[] arr, int from, int to) {
+        final int len = arr.length;
+        final int mid = (to + from) / 2;
+        for (int i = from, offset = to; i < mid; i++, offset--)
+            swap(arr, i, offset - 1);
+    }
+
+    /**
+     * Reverses the given part of an array by swapping elements
+     *
+     * @param arr The array to reverse
+     * @param from The inclusive index to begin from
+     * @param to The exclusive index to reverse up to
+     */
+    public static void reverse(@NonNull char[] arr, int from, int to) {
+        final int len = arr.length;
+        final int mid = (to + from) / 2;
+        for (int i = from, offset = to; i < mid; i++, offset--)
+            swap(arr, i, offset - 1);
+    }
+
+    /**
+     * Reverses the given part of an array by swapping elements
+     *
+     * @param arr The array to reverse
+     * @param from The inclusive index to begin from
+     * @param to The exclusive index to reverse up to
+     */
+    public static void reverse(@NonNull boolean[] arr, int from, int to) {
+        final int len = arr.length;
+        final int mid = (to + from) / 2;
+        for (int i = from, offset = to; i < mid; i++, offset--)
+            swap(arr, i, offset - 1);
+    }
+
+    /**
+     * Reverses the given part of an array by swapping elements
+     *
+     * @param arr The array to reverse
+     * @param from The inclusive index to begin from
+     * @param to The exclusive index to reverse up to
+     */
+    public static void reverse(@NonNull long[] arr, int from, int to) {
+        final int len = arr.length;
+        final int mid = (to + from) / 2;
+        for (int i = from, offset = to; i < mid; i++, offset--)
+            swap(arr, i, offset - 1);
+    }
+
+    /**
+     * Reverses the given part of an array by swapping elements
+     *
+     * @param arr The array to reverse
+     * @param from The inclusive index to begin from
+     * @param to The exclusive index to reverse up to
+     */
+    public static <T> void reverse(@NonNull T[] arr, int from, int to) {
+        final int len = arr.length;
+        final int mid = (to + from) / 2;
+        for (int i = from, offset = to; i < mid; i++, offset--)
+            swap(arr, i, offset - 1);
+    }
+
+    /**
+     * <P>
+     *     Rotates an array the same way {@link java.util.Collections}'
+     *     rotate2 does: reversing thrice
+     * </P>
+     *
+     * @param arr The array to rotate
+     * @param distance The distance to rotate the array
+     */
+    public static void rotate(@NonNull int[] arr, int distance) {
+        if (arr.length <= 1)
+            return;
+
+        int mid = -distance % arr.length;
+        if (mid < 0)
+            mid += arr.length;
+        if (mid == 0)
+            return;
+
+        ArraysSupport.reverse(arr, 0, mid);
+        ArraysSupport.reverse(arr, mid, arr.length);
+        ArraysSupport.reverse(arr);
+    }
+
+    /**
+     * <P>
+     *     Rotates an array the same way {@link java.util.Collections}'
+     *     rotate2 does: reversing thrice
+     * </P>
+     *
+     * @param arr The array to rotate
+     * @param distance The distance to rotate the array
+     */
+    public static void rotate(@NonNull float[] arr, int distance) {
+        if (arr.length <= 1)
+            return;
+
+        int mid = -distance % arr.length;
+        if (mid < 0)
+            mid += arr.length;
+        if (mid == 0)
+            return;
+
+        ArraysSupport.reverse(arr, 0, mid);
+        ArraysSupport.reverse(arr, mid, arr.length);
+        ArraysSupport.reverse(arr);
+    }
+
+    /**
+     * <P>
+     *     Rotates an array the same way {@link java.util.Collections}'
+     *     rotate2 does: reversing thrice
+     * </P>
+     *
+     * @param arr The array to rotate
+     * @param distance The distance to rotate the array
+     */
+    public static void rotate(@NonNull double[] arr, int distance) {
+        if (arr.length <= 1)
+            return;
+
+        int mid = -distance % arr.length;
+        if (mid < 0)
+            mid += arr.length;
+        if (mid == 0)
+            return;
+
+        ArraysSupport.reverse(arr, 0, mid);
+        ArraysSupport.reverse(arr, mid, arr.length);
+        ArraysSupport.reverse(arr);
+    }
+
+    /**
+     * <P>
+     *     Rotates an array the same way {@link java.util.Collections}'
+     *     rotate2 does: reversing thrice
+     * </P>
+     *
+     * @param arr The array to rotate
+     * @param distance The distance to rotate the array
+     */
+    public static void rotate(@NonNull char[] arr, int distance) {
+        if (arr.length <= 1)
+            return;
+
+        int mid = -distance % arr.length;
+        if (mid < 0)
+            mid += arr.length;
+        if (mid == 0)
+            return;
+
+        ArraysSupport.reverse(arr, 0, mid);
+        ArraysSupport.reverse(arr, mid, arr.length);
+        ArraysSupport.reverse(arr);
+    }
+
+    /**
+     * <P>
+     *     Rotates an array the same way {@link java.util.Collections}'
+     *     rotate2 does: reversing thrice
+     * </P>
+     *
+     * @param arr The array to rotate
+     * @param distance The distance to rotate the array
+     */
+    public static void rotate(@NonNull boolean[] arr, int distance) {
+        if (arr.length <= 1)
+            return;
+
+        int mid = -distance % arr.length;
+        if (mid < 0)
+            mid += arr.length;
+        if (mid == 0)
+            return;
+
+        ArraysSupport.reverse(arr, 0, mid);
+        ArraysSupport.reverse(arr, mid, arr.length);
+        ArraysSupport.reverse(arr);
+    }
+
+    /**
+     * <P>
+     *     Rotates an array the same way {@link java.util.Collections}'
+     *     rotate2 does: reversing thrice
+     * </P>
+     *
+     * @param arr The array to rotate
+     * @param distance The distance to rotate the array
+     */
+    public static void rotate(@NonNull long[] arr, int distance) {
+        if (arr.length <= 1)
+            return;
+
+        int mid = -distance % arr.length;
+        if (mid < 0)
+            mid += arr.length;
+        if (mid == 0)
+            return;
+
+        ArraysSupport.reverse(arr, 0, mid);
+        ArraysSupport.reverse(arr, mid, arr.length);
+        ArraysSupport.reverse(arr);
+    }
+
+    /**
+     * <P>
+     *     Rotates an array the same way {@link java.util.Collections}'
+     *     rotate2 does: reversing thrice
+     * </P>
+     *
+     * @param arr The array to rotate
+     * @param distance The distance to rotate the array
+     */
+    public static void rotate(@NonNull short[] arr, int distance) {
+        if (arr.length <= 1)
+            return;
+
+        int mid = -distance % arr.length;
+        if (mid < 0)
+            mid += arr.length;
+        if (mid == 0)
+            return;
+
+        ArraysSupport.reverse(arr, 0, mid);
+        ArraysSupport.reverse(arr, mid, arr.length);
+        ArraysSupport.reverse(arr);
+    }
+
+    /**
+     * <P>
+     *     Rotates an array the same way {@link java.util.Collections}'
+     *     rotate2 does: reversing thrice
+     * </P>
+     *
+     * @param arr The array to rotate
+     * @param distance The distance to rotate the array
+     */
+    public static void rotate(@NonNull byte[] arr, int distance) {
+        if (arr.length <= 1)
+            return;
+
+        int mid = -distance % arr.length;
+        if (mid < 0)
+            mid += arr.length;
+        if (mid == 0)
+            return;
+
+        ArraysSupport.reverse(arr, 0, mid);
+        ArraysSupport.reverse(arr, mid, arr.length);
+        ArraysSupport.reverse(arr);
+    }
+
+    /**
+     * <P>
+     *     Rotates an array the same way {@link java.util.Collections}'
+     *     rotate2 does: reversing thrice
+     * </P>
+     *
+     * @param arr The array to rotate
+     * @param distance The distance to rotate the array
+     */
+    public static <T> void rotate(@NonNull T[] arr, int distance) {
+        if (arr.length <= 1)
+            return;
+
+        int mid = -distance % arr.length;
+        if (mid < 0)
+            mid += arr.length;
+        if (mid == 0)
+            return;
+
+        ArraysSupport.reverse(arr, 0, mid);
+        ArraysSupport.reverse(arr, mid, arr.length);
+        ArraysSupport.reverse(arr);
+    }
+
     // TODO: 6/12/2022 shuffle
     // TODO: 6/12/2022 append?
     // TODO: 6/12/2022 prepend?
