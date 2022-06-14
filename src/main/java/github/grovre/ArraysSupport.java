@@ -20,14 +20,41 @@ import java.util.function.*;
 @UtilityClass
 public class ArraysSupport {
 
+    /**
+     * The constant EMPTY_INT_ARRAY.
+     */
     public static final int[] EMPTY_INT_ARRAY = new int[0];
+    /**
+     * The constant EMPTY_BYTE_ARRAY.
+     */
     public static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
+    /**
+     * The constant EMPTY_SHORT_ARRAY.
+     */
     public static final short[] EMPTY_SHORT_ARRAY = new short[0];
+    /**
+     * The constant EMPTY_FLOAT_ARRAY.
+     */
     public static final float[] EMPTY_FLOAT_ARRAY = new float[0];
+    /**
+     * The constant EMPTY_DOUBLE_ARRAY.
+     */
     public static final double[] EMPTY_DOUBLE_ARRAY = new double[0];
+    /**
+     * The constant EMPTY_LONG_ARRAY.
+     */
     public static final long[] EMPTY_LONG_ARRAY = new long[0];
+    /**
+     * The constant EMPTY_BOOLEAN_ARRAY.
+     */
     public static final boolean[] EMPTY_BOOLEAN_ARRAY = new boolean[0];
+    /**
+     * The constant EMPTY_CHAR_ARRAY.
+     */
     public static final char[] EMPTY_CHAR_ARRAY = new char[0];
+    /**
+     * The constant EMPTY_OBJECT_ARRAY.
+     */
     public static final Object[] EMPTY_OBJECT_ARRAY = new Object[0];
 
     /**
@@ -36,10 +63,11 @@ public class ArraysSupport {
      * index, 0, is applied to the function and assigned to index 0 and so on.
      * Generation is unchecked.
      *
+     * @param <T>            the type parameter
      * @param arrayGenerator The function used to create an array safely.
      *                       It should look like <code>T[]::new</code>
-     * @param op The operation to generate the elements
-     * @param len The length of the array
+     * @param op             The operation to generate the elements
+     * @param len            The length of the array
      * @return A new array after applying the generating function to all indices
      */
     public static <T> T[] generate(@NonNull IntFunction<T[]> arrayGenerator,@NonNull  Supplier<T> op, int len) {
@@ -54,7 +82,7 @@ public class ArraysSupport {
      * The parameter to the generate function is the index; the first
      * index, 0, is applied to the function and assigned to index 0 and so on.
      *
-     * @param op The operation to generate the elements
+     * @param op  The operation to generate the elements
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
@@ -70,7 +98,7 @@ public class ArraysSupport {
      * The parameter to the generate function is the index; the first
      * index, 0, is applied to the function and assigned to index 0 and so on.
      *
-     * @param op The operation to generate the elements
+     * @param op  The operation to generate the elements
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
@@ -86,7 +114,7 @@ public class ArraysSupport {
      * The parameter to the generate function is the index; the first
      * index, 0, is applied to the function and assigned to index 0 and so on.
      *
-     * @param op The operation to generate the elements
+     * @param op  The operation to generate the elements
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
@@ -102,7 +130,7 @@ public class ArraysSupport {
      * The parameter to the generate function is the index; the first
      * index, 0, is applied to the function and assigned to index 0 and so on.
      *
-     * @param op The operation to generate the elements
+     * @param op  The operation to generate the elements
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
@@ -118,7 +146,7 @@ public class ArraysSupport {
      * The parameter to the generate function is the index; the first
      * index, 0, is applied to the function and assigned to index 0 and so on.
      *
-     * @param op The operation to generate the elements
+     * @param op  The operation to generate the elements
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
@@ -134,7 +162,7 @@ public class ArraysSupport {
      * The parameter to the generate function is the index; the first
      * index, 0, is applied to the function and assigned to index 0 and so on.
      *
-     * @param op The operation to generate the elements
+     * @param op  The operation to generate the elements
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
@@ -150,7 +178,7 @@ public class ArraysSupport {
      * The parameter to the generate function is the index; the first
      * index, 0, is applied to the function and assigned to index 0 and so on.
      *
-     * @param op The operation to generate the elements
+     * @param op  The operation to generate the elements
      * @param len The length of the array
      * @return A new array after applying the generating function to all indices
      */
@@ -263,6 +291,7 @@ public class ArraysSupport {
      * Linearly searches through an array using the
      * object's <code>compareTo(o)</code> method.
      *
+     * @param <T> the type parameter
      * @param arr The array to be searched for the max
      * @return The max number from the array
      */
@@ -375,6 +404,7 @@ public class ArraysSupport {
      * Linearly searches through an array using Apache Common's
      * {@link FastMath} utility class to find the min.
      *
+     * @param <T> the type parameter
      * @param arr The array to be searched for the min
      * @return The min number from the array
      */
@@ -503,7 +533,7 @@ public class ArraysSupport {
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -515,7 +545,7 @@ public class ArraysSupport {
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -527,7 +557,7 @@ public class ArraysSupport {
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -539,7 +569,7 @@ public class ArraysSupport {
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -551,7 +581,7 @@ public class ArraysSupport {
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -563,7 +593,7 @@ public class ArraysSupport {
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -575,7 +605,7 @@ public class ArraysSupport {
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the targdoubleet, or -1 if it doesn't exist.
      */
@@ -587,7 +617,7 @@ public class ArraysSupport {
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the targdoubleet, or -1 if it doesn't exist.
      */
@@ -599,7 +629,8 @@ public class ArraysSupport {
      * Finds the first occurrence of the target parameter
      * using {@code firstIndexOf} from this class.
      *
-     * @param arr The array to find the target in
+     * @param <T>    the type parameter
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the targdoubleet, or -1 if it doesn't exist.
      */
@@ -610,7 +641,8 @@ public class ArraysSupport {
     /**
      * Finds the first occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param <T>    the type parameter
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -625,7 +657,7 @@ public class ArraysSupport {
     /**
      * Finds the first occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -640,7 +672,7 @@ public class ArraysSupport {
     /**
      * Finds the first occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -655,7 +687,7 @@ public class ArraysSupport {
     /**
      * Finds the first occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -670,7 +702,7 @@ public class ArraysSupport {
     /**
      * Finds the first occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -685,7 +717,7 @@ public class ArraysSupport {
     /**
      * Finds the first occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -700,7 +732,7 @@ public class ArraysSupport {
     /**
      * Finds the first occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -715,7 +747,7 @@ public class ArraysSupport {
     /**
      * Finds the first occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -730,7 +762,7 @@ public class ArraysSupport {
     /**
      * Finds the first occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -745,7 +777,8 @@ public class ArraysSupport {
     /**
      * Finds the last occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param <T>    the type parameter
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -760,7 +793,7 @@ public class ArraysSupport {
     /**
      * Finds the last occurrence of the target parameter.
      *
-     * @param arr The array to find the target in
+     * @param arr    The array to find the target in
      * @param target The target to find
      * @return The index of the target, or -1 if it doesn't exist.
      */
@@ -773,26 +806,27 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
+     * <p>
+     * <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
      * </P>
-     * <P>
-     *     Counting sort is an efficient sorting method with worst-case performance
-     *     of O(n+k), where k is the maximum number in an array. This means it is best on arrays
-     *     that contain a small difference between the minimum and maximum. For example,
-     *     sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
-     *     of counting sorts. The larger the difference between min and max of an array, despite the size
-     *     of the array being sorted, will consume a larger amount of memory.
+     * <p>
+     * Counting sort is an efficient sorting method with worst-case performance
+     * of O(n+k), where k is the maximum number in an array. This means it is best on arrays
+     * that contain a small difference between the minimum and maximum. For example,
+     * sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
+     * of counting sorts. The larger the difference between min and max of an array, despite the size
+     * of the array being sorted, will consume a larger amount of memory.
      * </P>
-     * <P>
-     *     The algorithm creates a temporary array (map) with a length of the maximum number.
-     *     It will then iterate through the array being sorted, placing every number
-     *     into an index of the same number. The map is then iterated linearly beginning from 0, placing
-     *     the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
+     * <p>
+     * The algorithm creates a temporary array (map) with a length of the maximum number.
+     * It will then iterate through the array being sorted, placing every number
+     * into an index of the same number. The map is then iterated linearly beginning from 0, placing
+     * the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
      * </P>
-     * <P>
-     *     This implementation of counting sort involves an offset variable to accommodate for negative numbers.
-     *     That means the length of the map will be <code>max + -min</code>. If the offset is >= 0, the offset is 0.
+     * <p>
+     * This implementation of counting sort involves an offset variable to accommodate for negative numbers.
+     * That means the length of the map will be <code>max + -min</code>. If the offset is greater
+     * than or equal to 0, the offset is 0.
      * </P>
      *
      * @param arr The array to sort
@@ -802,26 +836,27 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
+     * <p>
+     * <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
      * </P>
-     * <P>
-     *     Counting sort is an efficient sorting method with worst-case performance
-     *     of O(n+k), where k is the maximum number in an array. This means it is best on arrays
-     *     that contain a small difference between the minimum and maximum. For example,
-     *     sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
-     *     of counting sorts. The larger the difference between min and max of an array, despite the size
-     *     of the array being sorted, will consume a larger amount of memory.
+     * <p>
+     * Counting sort is an efficient sorting method with worst-case performance
+     * of O(n+k), where k is the maximum number in an array. This means it is best on arrays
+     * that contain a small difference between the minimum and maximum. For example,
+     * sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
+     * of counting sorts. The larger the difference between min and max of an array, despite the size
+     * of the array being sorted, will consume a larger amount of memory.
      * </P>
-     * <P>
-     *     The algorithm creates a temporary array (map) with a length of the maximum number.
-     *     It will then iterate through the array being sorted, placing every number
-     *     into an index of the same number. The map is then iterated linearly beginning from 0, placing
-     *     the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
+     * <p>
+     * The algorithm creates a temporary array (map) with a length of the maximum number.
+     * It will then iterate through the array being sorted, placing every number
+     * into an index of the same number. The map is then iterated linearly beginning from 0, placing
+     * the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
      * </P>
-     * <P>
-     *     This implementation of counting sort involves an offset variable to accommodate for negative numbers.
-     *     That means the length of the map will be <code>max + -min</code>. If the offset is >= 0, the offset is 0.
+     * <p>
+     * This implementation of counting sort involves an offset variable to accommodate for negative numbers.
+     * That means the length of the map will be <code>max + -min</code>. If the offset is greater than
+     * or equal to 0, the offset is 0.
      * </P>
      *
      * @param arr The array to sort
@@ -831,26 +866,27 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
+     * <p>
+     * <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
      * </P>
-     * <P>
-     *     Counting sort is an efficient sorting method with worst-case performance
-     *     of O(n+k), where k is the maximum number in an array. This means it is best on arrays
-     *     that contain a small difference between the minimum and maximum. For example,
-     *     sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
-     *     of counting sorts. The larger the difference between min and max of an array, despite the size
-     *     of the array being sorted, will consume a larger amount of memory.
+     * <p>
+     * Counting sort is an efficient sorting method with worst-case performance
+     * of O(n+k), where k is the maximum number in an array. This means it is best on arrays
+     * that contain a small difference between the minimum and maximum. For example,
+     * sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
+     * of counting sorts. The larger the difference between min and max of an array, despite the size
+     * of the array being sorted, will consume a larger amount of memory.
      * </P>
-     * <P>
-     *     The algorithm creates a temporary array (map) with a length of the maximum number.
-     *     It will then iterate through the array being sorted, placing every number
-     *     into an index of the same number. The map is then iterated linearly beginning from 0, placing
-     *     the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
+     * <p>
+     * The algorithm creates a temporary array (map) with a length of the maximum number.
+     * It will then iterate through the array being sorted, placing every number
+     * into an index of the same number. The map is then iterated linearly beginning from 0, placing
+     * the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
      * </P>
-     * <P>
-     *     This implementation of counting sort involves an offset variable to accommodate for negative numbers.
-     *     That means the length of the map will be <code>max + -min</code>. If the offset is >= 0, the offset is 0.
+     * <p>
+     * This implementation of counting sort involves an offset variable to accommodate for negative numbers.
+     * That means the length of the map will be <code>max + -min</code>. If the offset is greater than
+     * or equal to 0, the offset is 0.
      * </P>
      *
      * @param arr The array to sort
@@ -860,22 +896,22 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
+     * <p>
+     * <a href="https://en.wikipedia.org/wiki/Counting_sort">Wikipedia Article</a>
      * </P>
-     * <P>
-     *     Counting sort is an efficient sorting method with worst-case performance
-     *     of O(n+k), where k is the maximum number in an array. This means it is best on arrays
-     *     that contain a small difference between the minimum and maximum. For example,
-     *     sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
-     *     of counting sorts. The larger the difference between min and max of an array, despite the size
-     *     of the array being sorted, will consume a larger amount of memory.
+     * <p>
+     * Counting sort is an efficient sorting method with worst-case performance
+     * of O(n+k), where k is the maximum number in an array. This means it is best on arrays
+     * that contain a small difference between the minimum and maximum. For example,
+     * sorting {1, 2, 3, 4, 3, 2, 1} will be faster than {1, 1000, 500}. This is also the drawback
+     * of counting sorts. The larger the difference between min and max of an array, despite the size
+     * of the array being sorted, will consume a larger amount of memory.
      * </P>
-     * <P>
-     *     The algorithm creates a temporary array (map) with a length of the maximum number.
-     *     It will then iterate through the array being sorted, placing every number
-     *     into an index of the same number. The map is then iterated linearly beginning from 0, placing
-     *     the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
+     * <p>
+     * The algorithm creates a temporary array (map) with a length of the maximum number.
+     * It will then iterate through the array being sorted, placing every number
+     * into an index of the same number. The map is then iterated linearly beginning from 0, placing
+     * the index where the map is greater than 0 at the offset index in the original array until it is done iterating.
      * </P>
      *
      * @param arr The array to sort
@@ -885,12 +921,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns true if the two specified arrays have no elements in common.
+     * <p>
+     * Returns true if the two specified arrays have no elements in common.
      * </P>
-     * <P>
-     *     This method streams both arrays then uses filtering and anyMatch to
-     *     determine if they have anything in common. This method's speed is untested.
+     * <p>
+     * This method streams both arrays then uses filtering and anyMatch to
+     * determine if they have anything in common. This method's speed is untested.
      * </P>
      *
      * @param arr1 The first array
@@ -902,12 +938,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns true if the two specified arrays have no elements in common.
+     * <p>
+     * Returns true if the two specified arrays have no elements in common.
      * </P>
-     * <P>
-     *     This method streams both arrays then uses filtering and anyMatch to
-     *     determine if they have anything in common. This method's speed is untested.
+     * <p>
+     * This method streams both arrays then uses filtering and anyMatch to
+     * determine if they have anything in common. This method's speed is untested.
      * </P>
      *
      * @param arr1 The first array
@@ -919,12 +955,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns true if the two specified arrays have no elements in common.
+     * <p>
+     * Returns true if the two specified arrays have no elements in common.
      * </P>
-     * <P>
-     *     This method streams both arrays then uses filtering and anyMatch to
-     *     determine if they have anything in common. This method's speed is untested.
+     * <p>
+     * This method streams both arrays then uses filtering and anyMatch to
+     * determine if they have anything in common. This method's speed is untested.
      * </P>
      *
      * @param arr1 The first array
@@ -936,14 +972,15 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns true if the two specified arrays have no elements in common.
+     * <p>
+     * Returns true if the two specified arrays have no elements in common.
      * </P>
-     * <P>
-     *     This method streams both arrays then uses filtering and anyMatch to
-     *     determine if they have anything in common. This method's speed is untested.
+     * <p>
+     * This method streams both arrays then uses filtering and anyMatch to
+     * determine if they have anything in common. This method's speed is untested.
      * </P>
      *
+     * @param <T>  the type parameter
      * @param arr1 The first array
      * @param arr2 The second array
      * @return True if both arrays have no elements in common. False if they both contain
@@ -953,12 +990,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns the number of elements in the specified array equal to the specified target.
-     *     Does a basic linear search on an array using a for loop.
+     * <p>
+     * Returns the number of elements in the specified array equal to the specified target.
+     * Does a basic linear search on an array using a for loop.
      * </P>
      *
-     * @param arr The array to search
+     * @param arr    The array to search
      * @param target The target to search for
      * @return The amount of appearances of the target in the given array
      */
@@ -971,12 +1008,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns the number of elements in the specified array equal to the specified target.
-     *     Does a basic linear search on an array using a for loop.
+     * <p>
+     * Returns the number of elements in the specified array equal to the specified target.
+     * Does a basic linear search on an array using a for loop.
      * </P>
      *
-     * @param arr The array to search
+     * @param arr    The array to search
      * @param target The target to search for
      * @return The amount of appearances of the target in the given array
      */
@@ -989,12 +1026,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns the number of elements in the specified array equal to the specified target.
-     *     Does a basic linear search on an array using a for loop.
+     * <p>
+     * Returns the number of elements in the specified array equal to the specified target.
+     * Does a basic linear search on an array using a for loop.
      * </P>
      *
-     * @param arr The array to search
+     * @param arr    The array to search
      * @param target The target to search for
      * @return The amount of appearances of the target in the given array
      */
@@ -1007,12 +1044,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns the number of elements in the specified array equal to the specified target.
-     *     Does a basic linear search on an array using a for loop.
+     * <p>
+     * Returns the number of elements in the specified array equal to the specified target.
+     * Does a basic linear search on an array using a for loop.
      * </P>
      *
-     * @param arr The array to search
+     * @param arr    The array to search
      * @param target The target to search for
      * @return The amount of appearances of the target in the given array
      */
@@ -1025,12 +1062,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns the number of elements in the specified array equal to the specified target.
-     *     Does a basic linear search on an array using a for loop.
+     * <p>
+     * Returns the number of elements in the specified array equal to the specified target.
+     * Does a basic linear search on an array using a for loop.
      * </P>
      *
-     * @param arr The array to search
+     * @param arr    The array to search
      * @param target The target to search for
      * @return The amount of appearances of the target in the given array
      */
@@ -1043,12 +1080,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns the number of elements in the specified array equal to the specified target.
-     *     Does a basic linear search on an array using a for loop.
+     * <p>
+     * Returns the number of elements in the specified array equal to the specified target.
+     * Does a basic linear search on an array using a for loop.
      * </P>
      *
-     * @param arr The array to search
+     * @param arr    The array to search
      * @param target The target to search for
      * @return The amount of appearances of the target in the given array
      */
@@ -1061,12 +1098,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns the number of elements in the specified array equal to the specified target.
-     *     Does a basic linear search on an array using a for loop.
+     * <p>
+     * Returns the number of elements in the specified array equal to the specified target.
+     * Does a basic linear search on an array using a for loop.
      * </P>
      *
-     * @param arr The array to search
+     * @param arr    The array to search
      * @param target The target to search for
      * @return The amount of appearances of the target in the given array
      */
@@ -1079,12 +1116,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns the number of elements in the specified array equal to the specified target.
-     *     Does a basic linear search on an array using a for loop.
+     * <p>
+     * Returns the number of elements in the specified array equal to the specified target.
+     * Does a basic linear search on an array using a for loop.
      * </P>
      *
-     * @param arr The array to search
+     * @param arr    The array to search
      * @param target The target to search for
      * @return The amount of appearances of the target in the given array
      */
@@ -1097,12 +1134,13 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Returns the number of elements in the specified array equal to the specified target.
-     *     Does a basic linear search on an array using a for loop.
+     * <p>
+     * Returns the number of elements in the specified array equal to the specified target.
+     * Does a basic linear search on an array using a for loop.
      * </P>
      *
-     * @param arr The array to search
+     * @param <T>    the type parameter
+     * @param arr    The array to search
      * @param target The target to search for
      * @return The amount of appearances of the target in the given array
      */
@@ -1115,11 +1153,11 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
+     * @param arr    The array
      * @param oldVal The old value to be replaced
      * @param newVal The new value
      * @return True if at least one element was replaced
@@ -1136,11 +1174,11 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
+     * @param arr    The array
      * @param oldVal The old value to be replaced
      * @param newVal The new value
      * @return True if at least one element was replaced
@@ -1157,11 +1195,11 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
+     * @param arr    The array
      * @param oldVal The old value to be replaced
      * @param newVal The new value
      * @return True if at least one element was replaced
@@ -1178,11 +1216,11 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
+     * @param arr    The array
      * @param oldVal The old value to be replaced
      * @param newVal The new value
      * @return True if at least one element was replaced
@@ -1199,11 +1237,11 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
+     * @param arr    The array
      * @param oldVal The old value to be replaced
      * @param newVal The new value
      * @return True if at least one element was replaced
@@ -1220,11 +1258,11 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
+     * @param arr    The array
      * @param oldVal The old value to be replaced
      * @param newVal The new value
      * @return True if at least one element was replaced
@@ -1241,11 +1279,11 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
+     * @param arr    The array
      * @param oldVal The old value to be replaced
      * @param newVal The new value
      * @return True if at least one element was replaced
@@ -1262,11 +1300,11 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
+     * @param arr    The array
      * @param oldVal The old value to be replaced
      * @param newVal The new value
      * @return True if at least one element was replaced
@@ -1283,11 +1321,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
+     * @param <T>    the type parameter
+     * @param arr    The array
      * @param oldVal The old value to be replaced
      * @param newVal The new value
      * @return True if at least one element was replaced
@@ -1304,12 +1343,13 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Replaces all occurrences of one specified value in a list with another.
+     * <p>
+     * Replaces all occurrences of one specified value in a list with another.
      * </P>
      *
-     * @param arr The array
-     * @param oldVal The old value to be replaced
+     * @param <T>      the type parameter
+     * @param arr      The array
+     * @param oldVal   The old value to be replaced
      * @param supplier The supplier that will generate the replacing value
      * @return True if at least one element was replaced
      */
@@ -1328,8 +1368,8 @@ public class ArraysSupport {
      * Simply swaps the elements at two indices using a temp variable.
      *
      * @param arr The array to swap in
-     * @param i1 The first index to swap
-     * @param i2 The second index to swap
+     * @param i1  The first index to swap
+     * @param i2  The second index to swap
      */
     public static void swap(@NonNull int[] arr, int i1, int i2) {
         int temp = arr[i1];
@@ -1341,8 +1381,8 @@ public class ArraysSupport {
      * Simply swaps the elements at two indices using a temp variable.
      *
      * @param arr The array to swap in
-     * @param i1 The first index to swap
-     * @param i2 The second index to swap
+     * @param i1  The first index to swap
+     * @param i2  The second index to swap
      */
     public static void swap(@NonNull char[] arr, int i1, int i2) {
         char temp = arr[i1];
@@ -1354,8 +1394,8 @@ public class ArraysSupport {
      * Simply swaps the elements at two indices using a temp variable.
      *
      * @param arr The array to swap in
-     * @param i1 The first index to swap
-     * @param i2 The second index to swap
+     * @param i1  The first index to swap
+     * @param i2  The second index to swap
      */
     public static void swap(@NonNull boolean[] arr, int i1, int i2) {
         boolean temp = arr[i1];
@@ -1367,8 +1407,8 @@ public class ArraysSupport {
      * Simply swaps the elements at two indices using a temp variable.
      *
      * @param arr The array to swap in
-     * @param i1 The first index to swap
-     * @param i2 The second index to swap
+     * @param i1  The first index to swap
+     * @param i2  The second index to swap
      */
     public static void swap(@NonNull short[] arr, int i1, int i2) {
         short temp = arr[i1];
@@ -1380,8 +1420,8 @@ public class ArraysSupport {
      * Simply swaps the elements at two indices using a temp variable.
      *
      * @param arr The array to swap in
-     * @param i1 The first index to swap
-     * @param i2 The second index to swap
+     * @param i1  The first index to swap
+     * @param i2  The second index to swap
      */
     public static void swap(@NonNull byte[] arr, int i1, int i2) {
         byte temp = arr[i1];
@@ -1393,8 +1433,8 @@ public class ArraysSupport {
      * Simply swaps the elements at two indices using a temp variable.
      *
      * @param arr The array to swap in
-     * @param i1 The first index to swap
-     * @param i2 The second index to swap
+     * @param i1  The first index to swap
+     * @param i2  The second index to swap
      */
     public static void swap(@NonNull long[] arr, int i1, int i2) {
         long temp = arr[i1];
@@ -1406,8 +1446,8 @@ public class ArraysSupport {
      * Simply swaps the elements at two indices using a temp variable.
      *
      * @param arr The array to swap in
-     * @param i1 The first index to swap
-     * @param i2 The second index to swap
+     * @param i1  The first index to swap
+     * @param i2  The second index to swap
      */
     public static void swap(@NonNull float[] arr, int i1, int i2) {
         float temp = arr[i1];
@@ -1419,8 +1459,8 @@ public class ArraysSupport {
      * Simply swaps the elements at two indices using a temp variable.
      *
      * @param arr The array to swap in
-     * @param i1 The first index to swap
-     * @param i2 The second index to swap
+     * @param i1  The first index to swap
+     * @param i2  The second index to swap
      */
     public static void swap(@NonNull double[] arr, int i1, int i2) {
         double temp = arr[i1];
@@ -1431,9 +1471,10 @@ public class ArraysSupport {
     /**
      * Simply swaps the elements at two indices using a temp variable.
      *
+     * @param <T> the type parameter
      * @param arr The array to swap in
-     * @param i1 The first index to swap
-     * @param i2 The second index to swap
+     * @param i1  The first index to swap
+     * @param i2  The second index to swap
      */
     public static <T> void swap(@NonNull T[] arr, int i1, int i2) {
         T temp = arr[i1];
@@ -1540,6 +1581,7 @@ public class ArraysSupport {
     /**
      * Reverses an array by swapping elements equidistant from both edges until the middle
      *
+     * @param <T> the type parameter
      * @param arr The array to reverse
      */
     public static <T> void reverse(@NonNull T[] arr) {
@@ -1552,9 +1594,9 @@ public class ArraysSupport {
     /**
      * Reverses the given part of an array by swapping elements
      *
-     * @param arr The array to reverse
+     * @param arr  The array to reverse
      * @param from The inclusive index to begin from
-     * @param to The exclusive index to reverse up to
+     * @param to   The exclusive index to reverse up to
      */
     public static void reverse(@NonNull int[] arr, int from, int to) {
         final int len = arr.length;
@@ -1566,9 +1608,9 @@ public class ArraysSupport {
     /**
      * Reverses the given part of an array by swapping elements
      *
-     * @param arr The array to reverse
+     * @param arr  The array to reverse
      * @param from The inclusive index to begin from
-     * @param to The exclusive index to reverse up to
+     * @param to   The exclusive index to reverse up to
      */
     public static void reverse(@NonNull byte[] arr, int from, int to) {
         final int len = arr.length;
@@ -1580,9 +1622,9 @@ public class ArraysSupport {
     /**
      * Reverses the given part of an array by swapping elements
      *
-     * @param arr The array to reverse
+     * @param arr  The array to reverse
      * @param from The inclusive index to begin from
-     * @param to The exclusive index to reverse up to
+     * @param to   The exclusive index to reverse up to
      */
     public static void reverse(@NonNull short[] arr, int from, int to) {
         final int len = arr.length;
@@ -1594,9 +1636,9 @@ public class ArraysSupport {
     /**
      * Reverses the given part of an array by swapping elements
      *
-     * @param arr The array to reverse
+     * @param arr  The array to reverse
      * @param from The inclusive index to begin from
-     * @param to The exclusive index to reverse up to
+     * @param to   The exclusive index to reverse up to
      */
     public static void reverse(@NonNull double[] arr, int from, int to) {
         final int len = arr.length;
@@ -1608,9 +1650,9 @@ public class ArraysSupport {
     /**
      * Reverses the given part of an array by swapping elements
      *
-     * @param arr The array to reverse
+     * @param arr  The array to reverse
      * @param from The inclusive index to begin from
-     * @param to The exclusive index to reverse up to
+     * @param to   The exclusive index to reverse up to
      */
     public static void reverse(@NonNull float[] arr, int from, int to) {
         final int len = arr.length;
@@ -1622,9 +1664,9 @@ public class ArraysSupport {
     /**
      * Reverses the given part of an array by swapping elements
      *
-     * @param arr The array to reverse
+     * @param arr  The array to reverse
      * @param from The inclusive index to begin from
-     * @param to The exclusive index to reverse up to
+     * @param to   The exclusive index to reverse up to
      */
     public static void reverse(@NonNull char[] arr, int from, int to) {
         final int len = arr.length;
@@ -1636,9 +1678,9 @@ public class ArraysSupport {
     /**
      * Reverses the given part of an array by swapping elements
      *
-     * @param arr The array to reverse
+     * @param arr  The array to reverse
      * @param from The inclusive index to begin from
-     * @param to The exclusive index to reverse up to
+     * @param to   The exclusive index to reverse up to
      */
     public static void reverse(@NonNull boolean[] arr, int from, int to) {
         final int len = arr.length;
@@ -1650,9 +1692,9 @@ public class ArraysSupport {
     /**
      * Reverses the given part of an array by swapping elements
      *
-     * @param arr The array to reverse
+     * @param arr  The array to reverse
      * @param from The inclusive index to begin from
-     * @param to The exclusive index to reverse up to
+     * @param to   The exclusive index to reverse up to
      */
     public static void reverse(@NonNull long[] arr, int from, int to) {
         final int len = arr.length;
@@ -1664,9 +1706,10 @@ public class ArraysSupport {
     /**
      * Reverses the given part of an array by swapping elements
      *
-     * @param arr The array to reverse
+     * @param <T>  the type parameter
+     * @param arr  The array to reverse
      * @param from The inclusive index to begin from
-     * @param to The exclusive index to reverse up to
+     * @param to   The exclusive index to reverse up to
      */
     public static <T> void reverse(@NonNull T[] arr, int from, int to) {
         final int len = arr.length;
@@ -1676,12 +1719,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Rotates an array the same way {@link java.util.Collections}'
-     *     rotate2 does: reversing thrice
+     * <p>
+     * Rotates an array the same way {@link java.util.Collections}'
+     * rotate2 does: reversing thrice
      * </P>
      *
-     * @param arr The array to rotate
+     * @param arr      The array to rotate
      * @param distance The distance to rotate the array
      */
     public static void rotate(@NonNull int[] arr, int distance) {
@@ -1700,12 +1743,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Rotates an array the same way {@link java.util.Collections}'
-     *     rotate2 does: reversing thrice
+     * <p>
+     * Rotates an array the same way {@link java.util.Collections}'
+     * rotate2 does: reversing thrice
      * </P>
      *
-     * @param arr The array to rotate
+     * @param arr      The array to rotate
      * @param distance The distance to rotate the array
      */
     public static void rotate(@NonNull float[] arr, int distance) {
@@ -1724,12 +1767,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Rotates an array the same way {@link java.util.Collections}'
-     *     rotate2 does: reversing thrice
+     * <p>
+     * Rotates an array the same way {@link java.util.Collections}'
+     * rotate2 does: reversing thrice
      * </P>
      *
-     * @param arr The array to rotate
+     * @param arr      The array to rotate
      * @param distance The distance to rotate the array
      */
     public static void rotate(@NonNull double[] arr, int distance) {
@@ -1748,12 +1791,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Rotates an array the same way {@link java.util.Collections}'
-     *     rotate2 does: reversing thrice
+     * <p>
+     * Rotates an array the same way {@link java.util.Collections}'
+     * rotate2 does: reversing thrice
      * </P>
      *
-     * @param arr The array to rotate
+     * @param arr      The array to rotate
      * @param distance The distance to rotate the array
      */
     public static void rotate(@NonNull char[] arr, int distance) {
@@ -1772,12 +1815,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Rotates an array the same way {@link java.util.Collections}'
-     *     rotate2 does: reversing thrice
+     * <p>
+     * Rotates an array the same way {@link java.util.Collections}'
+     * rotate2 does: reversing thrice
      * </P>
      *
-     * @param arr The array to rotate
+     * @param arr      The array to rotate
      * @param distance The distance to rotate the array
      */
     public static void rotate(@NonNull boolean[] arr, int distance) {
@@ -1796,12 +1839,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Rotates an array the same way {@link java.util.Collections}'
-     *     rotate2 does: reversing thrice
+     * <p>
+     * Rotates an array the same way {@link java.util.Collections}'
+     * rotate2 does: reversing thrice
      * </P>
      *
-     * @param arr The array to rotate
+     * @param arr      The array to rotate
      * @param distance The distance to rotate the array
      */
     public static void rotate(@NonNull long[] arr, int distance) {
@@ -1820,12 +1863,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Rotates an array the same way {@link java.util.Collections}'
-     *     rotate2 does: reversing thrice
+     * <p>
+     * Rotates an array the same way {@link java.util.Collections}'
+     * rotate2 does: reversing thrice
      * </P>
      *
-     * @param arr The array to rotate
+     * @param arr      The array to rotate
      * @param distance The distance to rotate the array
      */
     public static void rotate(@NonNull short[] arr, int distance) {
@@ -1844,12 +1887,12 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Rotates an array the same way {@link java.util.Collections}'
-     *     rotate2 does: reversing thrice
+     * <p>
+     * Rotates an array the same way {@link java.util.Collections}'
+     * rotate2 does: reversing thrice
      * </P>
      *
-     * @param arr The array to rotate
+     * @param arr      The array to rotate
      * @param distance The distance to rotate the array
      */
     public static void rotate(@NonNull byte[] arr, int distance) {
@@ -1868,12 +1911,13 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Rotates an array the same way {@link java.util.Collections}'
-     *     rotate2 does: reversing thrice
+     * <p>
+     * Rotates an array the same way {@link java.util.Collections}'
+     * rotate2 does: reversing thrice
      * </P>
      *
-     * @param arr The array to rotate
+     * @param <T>      the type parameter
+     * @param arr      The array to rotate
      * @param distance The distance to rotate the array
      */
     public static <T> void rotate(@NonNull T[] arr, int distance) {
@@ -1892,14 +1936,14 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Shuffles the array using an indexed for-loop
-     *     and ThreadLocalRandom to get a random index
-     *     to swap
+     * <p>
+     * Shuffles the array using an indexed for-loop
+     * and ThreadLocalRandom to get a random index
+     * to swap
      * </P>
-     * <P>
-     *     It is theoretically possible that the array turns out
-     *     in the exact same order as it went in, but highly unlikely.
+     * <p>
+     * It is theoretically possible that the array turns out
+     * in the exact same order as it went in, but highly unlikely.
      * </P>
      *
      * @param arr The array to shuffle
@@ -1913,14 +1957,14 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Shuffles the array using an indexed for-loop
-     *     and ThreadLocalRandom to get a random index
-     *     to swap
+     * <p>
+     * Shuffles the array using an indexed for-loop
+     * and ThreadLocalRandom to get a random index
+     * to swap
      * </P>
-     * <P>
-     *     It is theoretically possible that the array turns out
-     *     in the exact same order as it went in, but highly unlikely.
+     * <p>
+     * It is theoretically possible that the array turns out
+     * in the exact same order as it went in, but highly unlikely.
      * </P>
      *
      * @param arr The array to shuffle
@@ -1934,14 +1978,14 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Shuffles the array using an indexed for-loop
-     *     and ThreadLocalRandom to get a random index
-     *     to swap
+     * <p>
+     * Shuffles the array using an indexed for-loop
+     * and ThreadLocalRandom to get a random index
+     * to swap
      * </P>
-     * <P>
-     *     It is theoretically possible that the array turns out
-     *     in the exact same order as it went in, but highly unlikely.
+     * <p>
+     * It is theoretically possible that the array turns out
+     * in the exact same order as it went in, but highly unlikely.
      * </P>
      *
      * @param arr The array to shuffle
@@ -1955,14 +1999,14 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Shuffles the array using an indexed for-loop
-     *     and ThreadLocalRandom to get a random index
-     *     to swap
+     * <p>
+     * Shuffles the array using an indexed for-loop
+     * and ThreadLocalRandom to get a random index
+     * to swap
      * </P>
-     * <P>
-     *     It is theoretically possible that the array turns out
-     *     in the exact same order as it went in, but highly unlikely.
+     * <p>
+     * It is theoretically possible that the array turns out
+     * in the exact same order as it went in, but highly unlikely.
      * </P>
      *
      * @param arr The array to shuffle
@@ -1976,14 +2020,14 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Shuffles the array using an indexed for-loop
-     *     and ThreadLocalRandom to get a random index
-     *     to swap
+     * <p>
+     * Shuffles the array using an indexed for-loop
+     * and ThreadLocalRandom to get a random index
+     * to swap
      * </P>
-     * <P>
-     *     It is theoretically possible that the array turns out
-     *     in the exact same order as it went in, but highly unlikely.
+     * <p>
+     * It is theoretically possible that the array turns out
+     * in the exact same order as it went in, but highly unlikely.
      * </P>
      *
      * @param arr The array to shuffle
@@ -1997,14 +2041,14 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Shuffles the array using an indexed for-loop
-     *     and ThreadLocalRandom to get a random index
-     *     to swap
+     * <p>
+     * Shuffles the array using an indexed for-loop
+     * and ThreadLocalRandom to get a random index
+     * to swap
      * </P>
-     * <P>
-     *     It is theoretically possible that the array turns out
-     *     in the exact same order as it went in, but highly unlikely.
+     * <p>
+     * It is theoretically possible that the array turns out
+     * in the exact same order as it went in, but highly unlikely.
      * </P>
      *
      * @param arr The array to shuffle
@@ -2018,14 +2062,14 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Shuffles the array using an indexed for-loop
-     *     and ThreadLocalRandom to get a random index
-     *     to swap
+     * <p>
+     * Shuffles the array using an indexed for-loop
+     * and ThreadLocalRandom to get a random index
+     * to swap
      * </P>
-     * <P>
-     *     It is theoretically possible that the array turns out
-     *     in the exact same order as it went in, but highly unlikely.
+     * <p>
+     * It is theoretically possible that the array turns out
+     * in the exact same order as it went in, but highly unlikely.
      * </P>
      *
      * @param arr The array to shuffle
@@ -2039,14 +2083,14 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Shuffles the array using an indexed for-loop
-     *     and ThreadLocalRandom to get a random index
-     *     to swap
+     * <p>
+     * Shuffles the array using an indexed for-loop
+     * and ThreadLocalRandom to get a random index
+     * to swap
      * </P>
-     * <P>
-     *     It is theoretically possible that the array turns out
-     *     in the exact same order as it went in, but highly unlikely.
+     * <p>
+     * It is theoretically possible that the array turns out
+     * in the exact same order as it went in, but highly unlikely.
      * </P>
      *
      * @param arr The array to shuffle
@@ -2060,16 +2104,17 @@ public class ArraysSupport {
     }
 
     /**
-     * <P>
-     *     Shuffles the array using an indexed for-loop
-     *     and ThreadLocalRandom to get a random index
-     *     to swap
+     * <p>
+     * Shuffles the array using an indexed for-loop
+     * and ThreadLocalRandom to get a random index
+     * to swap
      * </P>
-     * <P>
-     *     It is theoretically possible that the array turns out
-     *     in the exact same order as it went in, but highly unlikely.
+     * <p>
+     * It is theoretically possible that the array turns out
+     * in the exact same order as it went in, but highly unlikely.
      * </P>
      *
+     * @param <T> the type parameter
      * @param arr The array to shuffle
      */
     public static <T> void shuffle(@NonNull T[] arr) {
