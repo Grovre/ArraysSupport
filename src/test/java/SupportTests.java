@@ -41,6 +41,17 @@ class SupportTests {
         arr2 = Stream.of(4, 3, 2, 1, 0, 5, 6, 7, 8, 9).map(Square::new).toArray(Square[]::new);
         ArraysSupport.reverse(arr, 0, 5);
         assertArrayEquals(arr2, arr);
+
+        arr = IntStream.rangeClosed(0, 5).mapToObj(Square::new).toArray(Square[]::new);
+        arr2 = IntStream.rangeClosed(-5, 10).mapToObj(Square::new).toArray(Square[]::new);
+        Square[] resultArr = ArraysSupport.union(arr, arr2, Square[]::new);
+        Arrays.sort(resultArr);
+        assertArrayEquals(resultArr, IntStream.rangeClosed(-5, 10).mapToObj(Square::new).toArray(Square[]::new));
+
+        arr = IntStream.rangeClosed(0, 100).mapToObj(Square::new).toArray(Square[]::new);
+        arr2 = IntStream.rangeClosed(90, 10_000).mapToObj(Square::new).toArray(Square[]::new);
+        resultArr = ArraysSupport.intersection(arr, arr2, Square[]::new);
+        assertArrayEquals(resultArr, IntStream.rangeClosed(90, 100).mapToObj(Square::new).toArray(Square[]::new));
     }
 
     @Test

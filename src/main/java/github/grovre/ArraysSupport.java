@@ -4,9 +4,10 @@ import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.math3.util.FastMath;
 
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.*;
+import java.util.stream.IntStream;
 
 
 /**
@@ -2113,6 +2114,9 @@ public class ArraysSupport {
      * It is theoretically possible that the array turns out
      * in the exact same order as it went in, but highly unlikely.
      * </P>
+     * <P>
+     *     This shuffles in O(n) time.
+     * </P>
      *
      * @param <T> the type parameter
      * @param arr The array to shuffle
@@ -2120,9 +2124,170 @@ public class ArraysSupport {
     public static <T> void shuffle(@NonNull T[] arr) {
         ThreadLocalRandom tlr = ThreadLocalRandom.current();
         for (int i = 0; i < arr.length; i++) {
-            int randomI = tlr.nextInt(arr.length);
-            swap(arr, i, randomI);
+            int iRandom = tlr.nextInt(arr.length);
+            swap(arr, i, iRandom);
         }
+    }
+
+    /**
+     * Takes all elements from both arrays and only puts 1 of each into a new array.
+     * @param arr1 The first array
+     * @param arr2 the second array
+     * @return The new array with only 1 of each element
+     */
+    public static int[] union(int[] arr1, int[] arr2) {
+        Set<Integer> set = new HashSet<>();
+        for (int n : arr1)
+            set.add(n);
+        for (int n : arr2)
+            set.add(n);
+        int[] unionArr = new int[set.size()];
+        Iterator<Integer> iter = set.iterator();
+        for (int i = 0; i < set.size(); i++) {
+            unionArr[i] = iter.next();
+        }
+        return unionArr;
+    }
+
+    /**
+     * Takes all elements from both arrays and only puts 1 of each into a new array.
+     * @param arr1 The first array
+     * @param arr2 the second array
+     * @return The new array with only 1 of each element
+     */
+    public static byte[] union(byte[] arr1, byte[] arr2) {
+        Set<Byte> set = new HashSet<>();
+        for (byte n : arr1)
+            set.add(n);
+        for (byte n : arr2)
+            set.add(n);
+        byte[] unionArr = new byte[set.size()];
+        Iterator<Byte> iter = set.iterator();
+        for (int i = 0; i < set.size(); i++) {
+            unionArr[i] = iter.next();
+        }
+        return unionArr;
+    }
+
+    /**
+     * Takes all elements from both arrays and only puts 1 of each into a new array.
+     * @param arr1 The first array
+     * @param arr2 the second array
+     * @return The new array with only 1 of each element
+     */
+    public static short[] union(short[] arr1, short[] arr2) {
+        Set<Short> set = new HashSet<>();
+        for (short n : arr1)
+            set.add(n);
+        for (short n : arr2)
+            set.add(n);
+        short[] unionArr = new short[set.size()];
+        Iterator<Short> iter = set.iterator();
+        for (int i = 0; i < set.size(); i++) {
+            unionArr[i] = iter.next();
+        }
+        return unionArr;
+    }
+
+    /**
+     * Takes all elements from both arrays and only puts 1 of each into a new array.
+     * @param arr1 The first array
+     * @param arr2 the second array
+     * @return The new array with only 1 of each element
+     */
+    public static long[] union(long[] arr1, long[] arr2) {
+        Set<Long> set = new HashSet<>();
+        for (long n : arr1)
+            set.add(n);
+        for (long n : arr2)
+            set.add(n);
+        long[] unionArr = new long[set.size()];
+        Iterator<Long> iter = set.iterator();
+        for (int i = 0; i < set.size(); i++) {
+            unionArr[i] = iter.next();
+        }
+        return unionArr;
+    }
+
+    /**
+     * Takes all elements from both arrays and only puts 1 of each into a new array.
+     * @param arr1 The first array
+     * @param arr2 the second array
+     * @return The new array with only 1 of each element
+     */
+    public static float[] union(float[] arr1, float[] arr2) {
+        Set<Float> set = new HashSet<>();
+        for (float n : arr1)
+            set.add(n);
+        for (float n : arr2)
+            set.add(n);
+        float[] unionArr = new float[set.size()];
+        Iterator<Float> iter = set.iterator();
+        for (int i = 0; i < set.size(); i++) {
+            unionArr[i] = iter.next();
+        }
+        return unionArr;
+    }
+
+    /**
+     * Takes all elements from both arrays and only puts 1 of each into a new array.
+     * @param arr1 The first array
+     * @param arr2 the second array
+     * @return The new array with only 1 of each element
+     */
+    public static double[] union(double[] arr1, double[] arr2) {
+        Set<Double> set = new HashSet<>();
+        for (double n : arr1)
+            set.add(n);
+        for (double n : arr2)
+            set.add(n);
+        double[] unionArr = new double[set.size()];
+        Iterator<Double> iter = set.iterator();
+        for (int i = 0; i < set.size(); i++) {
+            unionArr[i] = iter.next();
+        }
+        return unionArr;
+    }
+
+    /**
+     * Takes all elements from both arrays and only puts 1 of each into a new array.
+     * @param arr1 The first array
+     * @param arr2 the second array
+     * @return The new array with only 1 of each element
+     */
+    public static <T> T[] union(T[] arr1, T[] arr2, IntFunction<T[]> generator) {
+        Set<T> set = new HashSet<>();
+        Collections.addAll(set, arr1);
+        Collections.addAll(set, arr2);
+        return set.toArray(generator.apply(set.size()));
+    }
+
+    /**
+     * Gets all intersecting elements into an array using two sets and returns that new
+     * array of only intersecting elements.
+     * @param arr1 The first array
+     * @param arr2 The second array
+     * @param generator The generator to create an array with. Looks like <code>Integer[]::new</code>
+     * @return A new array with only intersecting elements; only elements that are in both arrays
+     * @param <T> The type to deal with
+     */
+    public static <T> T[] intersection(T[] arr1, T[] arr2, IntFunction<T[]> generator) {
+        Set<T> set1 = new HashSet<>(Arrays.asList(arr1));
+        Set<T> set2 = new HashSet<>(Arrays.asList(arr2));
+        ArrayList<T> list = new ArrayList<>();
+        for (T o : set1) {
+            if (set2.remove(o)) {
+                list.add(o);
+            }
+        }
+        for (T o : set2) {
+            if (set1.remove(o)) {
+                list.add(o);
+            }
+        }
+        T[] intersectionArr = generator.apply(list.size());
+        list.toArray(intersectionArr);
+        return intersectionArr;
     }
 
     // append?
